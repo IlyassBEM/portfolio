@@ -6,6 +6,282 @@
 <title>Portfolio – Ilyass BEN EL MEKKI | BTS SIO SISR</title>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  /* ══════════════════════════════════════════════════════════════════
+   SECTION STAGE
+═══════════════════════════════════════════════════════════════════ */
+#stage { min-height: auto; padding-bottom: 5rem; }
+ 
+/* ── Bannière hero stage ── */
+.stage-hero {
+  background: linear-gradient(135deg, #051428 0%, #0a1e3a 60%, #051020 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+.stage-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(30,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(30,111,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.stage-hero-badge {
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-h);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.6;
+  white-space: nowrap;
+  box-shadow: 0 8px 28px rgba(30,111,255,0.4);
+  flex-shrink: 0;
+}
+.stage-hero-badge .dates {
+  display: block;
+  font-family: var(--font-c);
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+.stage-hero-badge .status {
+  display: block;
+  font-size: 0.72rem;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 0.2rem 0.6rem;
+  margin-top: 0.5rem;
+}
+.stage-sub { font-family: var(--font-c); font-size: 0.75rem; color: var(--cyan); letter-spacing: 0.15em; margin-bottom: 0.8rem; }
+.stage-hero h2 { font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
+.stage-hero p { font-size: 0.88rem; color: #9ab0c8; line-height: 1.8; max-width: 620px; }
+.stage-meta {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+.stage-chip {
+  font-family: var(--font-c); font-size: 0.68rem;
+  padding: 0.25rem 0.75rem; border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--blue2); background: rgba(30,111,255,0.08);
+}
+ 
+/* ── Grille infos clés ── */
+.stage-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.stage-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.stage-info-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+.stage-info-card .ico { font-size: 1.5rem; margin-bottom: 0.6rem; }
+.stage-info-card .key { font-family: var(--font-c); font-size: 0.65rem; color: var(--grey); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+.stage-info-card .val { font-family: var(--font-h); font-size: 0.9rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+.stage-info-card .val span { color: var(--cyan); }
+ 
+/* ── Sous-titre de section ── */
+.stage-section { margin-top: 2.2rem; }
+.stage-section-title {
+  font-size: 1rem; color: var(--cyan);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+ 
+/* ── Missions : cards ── */
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.mission-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.mission-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+.mission-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+.mission-card .mission-ico { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.mission-card h4 { font-size: 0.9rem; color: var(--white); margin-bottom: 0.4rem; }
+.mission-card p { font-size: 0.81rem; color: var(--grey); line-height: 1.7; margin-bottom: 0.8rem; }
+.mission-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.mission-tag {
+  font-family: var(--font-c); font-size: 0.63rem;
+  padding: 0.16rem 0.5rem; border-radius: 4px;
+  background: rgba(30,111,255,0.1);
+  border: 1px solid rgba(30,111,255,0.25);
+  color: var(--blue2);
+}
+ 
+/* ── Outils découverts ── */
+.outils-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+.outil-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.outil-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+.outil-card .outil-name { font-family: var(--font-h); font-size: 0.85rem; font-weight: 700; color: var(--blue2); margin-bottom: 0.3rem; }
+.outil-card .outil-desc { font-size: 0.72rem; color: var(--grey); line-height: 1.4; }
+ 
+/* ── Journal de bord (timeline) ── */
+.journal-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0.5rem;
+  position: relative;
+}
+.journal-timeline::before {
+  content: '';
+  position: absolute;
+  left: 72px; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.journal-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  position: relative;
+  align-items: flex-start;
+}
+.journal-item::after {
+  content: '';
+  position: absolute;
+  left: 66px; top: 14px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--navy2);
+  border: 2px solid var(--blue);
+}
+.journal-date {
+  font-family: var(--font-c); font-size: 0.65rem;
+  color: var(--cyan); text-align: right;
+  padding-top: 1px; line-height: 1.4;
+}
+.journal-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  margin-left: 0.5rem;
+}
+.journal-content .who {
+  font-family: var(--font-c); font-size: 0.65rem;
+  color: var(--gold); margin-bottom: 0.2rem;
+}
+.journal-content p { font-size: 0.78rem; color: var(--grey); line-height: 1.5; }
+ 
+/* ── Compétences acquises ── */
+.competences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.competence-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.competence-block h4 { font-size: 0.9rem; color: var(--cyan); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+.competence-block ul { list-style: none; padding: 0; }
+.competence-block ul li {
+  font-size: 0.83rem; color: var(--grey);
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative; line-height: 1.5;
+  border-bottom: 1px solid rgba(30,111,255,0.07);
+}
+.competence-block ul li:last-child { border-bottom: none; }
+.competence-block ul li::before { content: '▸'; color: var(--blue); position: absolute; left: 0; }
+ 
+/* ── Bilan box ── */
+.bilan-box {
+  background: linear-gradient(135deg, rgba(30,111,255,0.1), rgba(0,212,255,0.05));
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 2rem 2.2rem;
+  margin-top: 1.5rem;
+}
+.bilan-box h3 { font-size: 1rem; color: var(--white); margin-bottom: 1rem; }
+.bilan-box p { font-size: 0.88rem; color: #a0b4cc; line-height: 1.9; }
+.bilan-box p + p { margin-top: 0.8rem; }
+.bilan-box strong { color: var(--white); }
+ 
+/* ── CTA rapport ── */
+.rapport-cta {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.2rem;
+  margin-top: 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+}
+.rapport-cta-text h3 { font-size: 1rem; color: var(--white); margin-bottom: 0.3rem; }
+.rapport-cta-text p { font-size: 0.83rem; color: var(--grey); }
+.btn {
+  font-family: var(--font-h); font-size: 0.85rem; font-weight: 700;
+  padding: 0.7rem 1.6rem; border-radius: 8px; text-decoration: none;
+  letter-spacing: 0.06em; transition: all 0.2s; cursor: pointer; border: none; display: inline-block;
+}
+.btn-primary { background: var(--blue); color: #fff; box-shadow: 0 4px 20px rgba(30,111,255,0.4); }
+.btn-primary:hover { background: var(--blue2); transform: translateY(-2px); }
+ 
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.2rem 3rem; }
+  .stage-hero { grid-template-columns: 1fr; }
+  .stage-hero-badge { width: fit-content; }
+  .stage-info-grid { grid-template-columns: 1fr 1fr; }
+  .missions-grid, .competences-grid { grid-template-columns: 1fr; }
+  .outils-grid { grid-template-columns: repeat(2, 1fr); }
+  .journal-timeline::before { left: 60px; }
+  .journal-item { grid-template-columns: 60px 1fr; }
+  .journal-item::after { left: 54px; }
+  .rapport-cta { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .stage-info-grid { grid-template-columns: 1fr; }
+  .outils-grid { grid-template-columns: 1fr 1fr; }
+}
 /* ── RESET & BASE ─────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -812,6 +1088,7 @@ footer span { color: var(--cyan); }
 </style>
 </head>
 <body>
+  
 
 <!-- ── NAVIGATION ───────────────────────────────────────────────── -->
 <nav>
@@ -822,6 +1099,329 @@ footer span { color: var(--cyan); }
     <a href="#btssio">BTS SIO</a>
     <a href="#veille">Veille</a>
     <a href="#projets">Projets</a>
+    <section id="stage">
+  <div class="section-label">06 · Stage en entreprise</div>
+  <h2 class="page-title">Mon <span>Stage</span></h2>
+  <p class="page-sub">Première immersion professionnelle — Direction des Systèmes d'Information de la Mairie de Saint-Ouen-sur-Seine.</p>
+ 
+  <!-- Hero bannière -->
+  <div class="stage-hero fade-in">
+    <div>
+      <div class="stage-sub">RAPPORT DE STAGE · BTS SIO 1ÈRE ANNÉE</div>
+      <h2>DSI — Mairie de Saint-Ouen-sur-Seine</h2>
+      <p style="margin-top:0.8rem;">
+        Six semaines au sein d'un service informatique de collectivité territoriale : support helpdesk, gestion de parc, administration réseau et découverte de l'écosystème complet d'une DSI publique.
+      </p>
+      <div class="stage-meta">
+        <span class="stage-chip">26 mai – 3 juillet 2026</span>
+        <span class="stage-chip">Saint-Ouen (93)</span>
+        <span class="stage-chip">Maître de stage : M. MOUSTAINE</span>
+        <span class="stage-chip">~1 000 utilisateurs</span>
+        <span class="stage-chip">✅ Stage validé</span>
+      </div>
+    </div>
+    <div class="stage-hero-badge">
+      DSI<br>
+      Mairie de<br>
+      Saint-Ouen
+      <span class="dates">26/05 → 03/07/2026</span>
+      <span class="status">✅ Terminé</span>
+    </div>
+  </div>
+ 
+  <!-- Infos clés -->
+  <div class="stage-info-grid">
+    <div class="stage-info-card fade-in">
+      <div class="ico">🏛️</div>
+      <div class="key">STRUCTURE</div>
+      <div class="val">Mairie de <span>Saint-Ouen-sur-Seine</span> — Seine-Saint-Denis (93)</div>
+    </div>
+    <div class="stage-info-card fade-in">
+      <div class="ico">👨‍💼</div>
+      <div class="key">MAÎTRE DE STAGE</div>
+      <div class="val">Mohamed <span>MOUSTAINE</span><br><span style="font-size:0.75rem;color:var(--grey);font-family:var(--font-b);font-weight:400;">Directeur des Systèmes d'Information</span></div>
+    </div>
+    <div class="stage-info-card fade-in">
+      <div class="ico">📅</div>
+      <div class="key">DURÉE</div>
+      <div class="val"><span>6 semaines</span><br><span style="font-size:0.75rem;color:var(--grey);font-family:var(--font-b);font-weight:400;">26 mai → 3 juillet 2026</span></div>
+    </div>
+    <div class="stage-info-card fade-in">
+      <div class="ico">🌐</div>
+      <div class="key">SITES D'INTERVENTION</div>
+      <div class="val"><span>10+</span> sites municipaux<br><span style="font-size:0.75rem;color:var(--grey);font-family:var(--font-b);font-weight:400;">Écoles, piscine, CMS, commissariat…</span></div>
+    </div>
+    <div class="stage-info-card fade-in">
+      <div class="ico">👥</div>
+      <div class="key">PARC INFORMATIQUE</div>
+      <div class="val">~<span>1 000</span> agents<br><span style="font-size:0.75rem;color:var(--grey);font-family:var(--font-b);font-weight:400;">répartis sur l'ensemble de la ville</span></div>
+    </div>
+    <div class="stage-info-card fade-in">
+      <div class="ico">🎯</div>
+      <div class="key">BLOC BTS CIBLÉ</div>
+      <div class="val">Bloc <span>E5</span> — Support et mise à disposition des services informatiques</div>
+    </div>
+  </div>
+ 
+  <!-- Missions réalisées -->
+  <div class="stage-section">
+    <h3 class="stage-section-title">🛠️ Missions réalisées</h3>
+    <div class="missions-grid">
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">🎧</div>
+        <h4>Support utilisateurs & Helpdesk</h4>
+        <p>Prise en charge quotidienne des incidents via GLPI : branchements défectueux, configuration de messagerie Outlook, dépannage réseau, prise en main à distance avec RustDesk, configuration VPN PritUnl pour agents en télétravail.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">GLPI</span>
+          <span class="mission-tag">RustDesk</span>
+          <span class="mission-tag">Outlook</span>
+          <span class="mission-tag">PritUnl (VPN)</span>
+          <span class="mission-tag">TinyMDM</span>
+        </div>
+      </div>
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">💻</div>
+        <h4>Gestion & déploiement de parc</h4>
+        <p>Procédure de descente d'image (PC 1L / JVM) sous Windows 10/11, préparation de kits complets pour élus, création de profils utilisateurs, remplacement de postes à la piscine et au sein des directions. Réalisé en autonomie en fin de stage : 5 PC 1 litre.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">Descente d'image</span>
+          <span class="mission-tag">Windows 10/11</span>
+          <span class="mission-tag">BIOS / Secure Boot</span>
+          <span class="mission-tag">PXE / F12</span>
+        </div>
+      </div>
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">🌐</div>
+        <h4>Administration réseau & systèmes</h4>
+        <p>Observation et participation à l'administration réseau : supervision Zabbix, gestion Active Directory, administration PowerShell et SSH. Remplacement et configuration de switchs à l'école Michelet. Visite de la salle serveur.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">Zabbix</span>
+          <span class="mission-tag">Active Directory</span>
+          <span class="mission-tag">PowerShell</span>
+          <span class="mission-tag">SSH</span>
+          <span class="mission-tag">Switchs Cisco</span>
+          <span class="mission-tag">RDP</span>
+        </div>
+      </div>
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">📞</div>
+        <h4>Téléphonie IP & Impressions</h4>
+        <p>Découverte du système de téléphonie sur IP XIVO, installation de téléphones IP, configuration de PaperCut (impression sécurisée par matricule) dans plusieurs services dont le Centre Municipal de Santé Henri Barbusse.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">XIVO (ToIP)</span>
+          <span class="mission-tag">PaperCut</span>
+          <span class="mission-tag">Incovare</span>
+        </div>
+      </div>
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">🏫</div>
+        <h4>Interventions multi-sites</h4>
+        <p>Interventions en dehors de l'hôtel de ville : écoles Nelson Mandela, Michelet, Jean de la Fontaine, Victor Hugo — piscine municipale, Serre Wangari, commissariat de police, centres municipaux de santé, DRH, archives, DCRP.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">Écoles (x4)</span>
+          <span class="mission-tag">Commissariat</span>
+          <span class="mission-tag">Piscine</span>
+          <span class="mission-tag">CMS</span>
+          <span class="mission-tag">DRH</span>
+        </div>
+      </div>
+ 
+      <div class="mission-card fade-in">
+        <div class="mission-ico">📋</div>
+        <h4>Découverte des métiers DSI</h4>
+        <p>Rencontre avec les gestionnaires applicatifs (Astre, Maïdis, Technocarte, Ciril, parapheur électronique) et la Responsable Administrative et Financière — gestion budgétaire, marchés publics, GECCO.</p>
+        <div class="mission-tags">
+          <span class="mission-tag">Astre</span>
+          <span class="mission-tag">Maïdis</span>
+          <span class="mission-tag">Ciril</span>
+          <span class="mission-tag">GECCO</span>
+          <span class="mission-tag">Parapheur</span>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <!-- Outils découverts -->
+  <div class="stage-section">
+    <h3 class="stage-section-title">🔧 Outils & logiciels découverts</h3>
+    <div class="outils-grid">
+      <div class="outil-card fade-in"><div class="outil-name">GLPI</div><div class="outil-desc">Gestion de tickets et suivi d'incidents</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">RustDesk</div><div class="outil-desc">Prise en main à distance</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">Zabbix</div><div class="outil-desc">Supervision réseau & serveurs</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">TinyMDM</div><div class="outil-desc">Gestion des terminaux mobiles</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">PritUnl</div><div class="outil-desc">VPN d'accès distant sécurisé</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">PaperCut</div><div class="outil-desc">Impression sécurisée par matricule</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">XIVO</div><div class="outil-desc">Téléphonie sur IP (ToIP)</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">Incovare</div><div class="outil-desc">Portail agent (congés, mots de passe)</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">Active Directory</div><div class="outil-desc">Annuaire & droits utilisateurs</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">Astre</div><div class="outil-desc">Gestion financière & budgétaire</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">Maïdis</div><div class="outil-desc">Logiciel gestion de la santé</div></div>
+      <div class="outil-card fade-in"><div class="outil-name">GECCO</div><div class="outil-desc">Gestion des marchés publics</div></div>
+    </div>
+  </div>
+ 
+  <!-- Journal de bord condensé -->
+  <div class="stage-section">
+    <h3 class="stage-section-title">📅 Extraits du journal de bord</h3>
+    <div class="journal-timeline">
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">26/05<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Hassan — Support Helpdesk</div>
+          <p>Partage de connexion, réinitialisation WhatsApp + sécurisation TinyMDM, webcam débranchée, création de profil utilisateur (ProveIT).</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">28/05<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Tony — Administration Réseau</div>
+          <p>Descente d'image Windows, découverte du rôle d'administrateur réseau (Zabbix, AD, PowerShell, SSH), visite de la salle serveur.</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">02/06<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Abdelkader — Support Helpdesk</div>
+          <p>Intervention à la piscine municipale, préparation de 3 kits complets pour élus (PC + chargeur + pochette), école Nelson Mandela.</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">16/06<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Kader / Mehdi — Gestion Applicative</div>
+          <p>Découverte du métier de gestionnaire applicatif : Astre, Maïdis, Technocarte, Ciril, parapheur électronique.</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">26/06<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Meryl — Responsable Administrative & Financière</div>
+          <p>Découverte de la RAF : gestion budgétaire, marchés publics, outils GECCO, Astre et Excel pour le suivi des dépenses DSI.</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">01/07<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Ousmane / Youssouf — Administration Réseau</div>
+          <p>Intervention à l'école Michelet : remplacement, branchement et configuration de deux switchs réseau.</p>
+        </div>
+      </div>
+ 
+      <div class="journal-item fade-in">
+        <div class="journal-date">03/07<br>2026</div>
+        <div class="journal-content">
+          <div class="who">👤 Kader — En autonomie</div>
+          <p>Descente d'image sur 5 PC 1 litre en autonomie complète, intervention DRH (problème de son), configuration téléphone élu via TinyMDM. Fin de stage.</p>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <!-- Compétences acquises -->
+  <div class="stage-section">
+    <h3 class="stage-section-title">📈 Compétences développées</h3>
+    <div class="competences-grid">
+      <div class="competence-block fade-in">
+        <h4>🔧 Compétences techniques</h4>
+        <ul>
+          <li>Diagnostic et résolution d'incidents matériels et logiciels</li>
+          <li>Utilisation de GLPI pour le suivi des tickets d'assistance</li>
+          <li>Prise en main à distance (RustDesk, RDP)</li>
+          <li>Déploiement de systèmes d'exploitation par imagerie</li>
+          <li>Bases de l'administration réseau (AD, Zabbix, VPN, PowerShell)</li>
+          <li>Configuration de comptes de messagerie et postes complets</li>
+          <li>Sécurisation d'appareils mobiles (TinyMDM)</li>
+          <li>Découverte des applications métiers de collectivité</li>
+        </ul>
+      </div>
+      <div class="competence-block fade-in">
+        <h4>🤝 Compétences transversales</h4>
+        <ul>
+          <li>Autonomie lors des interventions sur sites distants</li>
+          <li>Communication technique adaptée aux utilisateurs non-experts</li>
+          <li>Organisation et gestion de plusieurs interventions par journée</li>
+          <li>Capacité d'adaptation à des environnements variés</li>
+          <li>Rigueur dans la documentation des interventions</li>
+          <li>Sang-froid face aux incidents non résolus seul</li>
+          <li>Pédagogie et patience auprès des agents en difficulté</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Bilan -->
+  <div class="bilan-box fade-in">
+    <h3>💬 Bilan personnel</h3>
+    <p>
+      Ce stage de six semaines a confirmé mon intérêt pour les métiers du <strong>support informatique et de l'administration système et réseau</strong>. La diversité des situations rencontrées, la variété des interlocuteurs et la richesse des outils découverts m'ont conforté dans mon choix d'orientation vers le BTS SIO, et plus particulièrement vers l'option <strong>SISR</strong>.
+    </p>
+    <p>
+      La découverte des autres métiers — gestion applicative, gestion administrative et financière — m'a aussi permis de mieux comprendre l'ensemble de l'écosystème d'un service informatique. Cette première expérience <strong>conforte mon projet professionnel</strong> et me donne envie d'approfondir mes compétences en administration systèmes et réseaux lors de ma deuxième année.
+    </p>
+  </div>
+ 
+  <!-- CTA rapport PDF -->
+  <div class="rapport-cta fade-in">
+    <div class="rapport-cta-text">
+      <h3>📄 Rapport de stage complet</h3>
+      <p>Document complet de 11 pages : présentation de la DSI, journal de bord détaillé, glossaire des outils et bilan des compétences.</p>
+    </div>
+    <a href="Rapport_de_stage_Ilyass_BEN_EL_MEKKI.pdf" target="_blank" class="btn btn-primary">Télécharger le rapport →</a>
+  </div>
+ 
+</section>
+ 
+<!-- SCRIPT (identique à l'original) -->
+<script>
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
+ 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+ 
+sections.forEach(s => observer.observe(s));
+ 
+const fadeEls = document.querySelectorAll('.fade-in');
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+ 
+fadeEls.forEach(el => fadeObserver.observe(el));
+ 
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
     <a href="#cv">CV & Lettre</a>
     <a href="#contact">Contact</a>
   </div>
