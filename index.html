@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Ilyass BEN EL MEKKI | BTS SIO SISR</title>
+<meta name="description" content="Portfolio E5 d'Ilyass BEN EL MEKKI, étudiant en 2e année de BTS SIO option SISR au Lycée Paul Lapie (Courbevoie).">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & BASE ─────────────────────────────────────────────────────── */
@@ -16,6 +17,7 @@
   --blue2:   #3d8bff;
   --cyan:    #00d4ff;
   --gold:    #f0a500;
+  --green:   #2ee59d;
   --white:   #f0f4ff;
   --grey:    #8898aa;
   --card:    #0d1e38;
@@ -26,7 +28,7 @@
   --font-b:  'Inter', sans-serif;
   --font-c:  'JetBrains Mono', monospace;
 }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; overflow-x: hidden; }
 body {
   font-family: var(--font-b);
   background: var(--navy);
@@ -46,7 +48,7 @@ nav {
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2.5rem;
+  padding: 0 2rem;
   height: 64px;
 }
 .nav-logo {
@@ -54,18 +56,20 @@ nav {
   font-weight: 800; font-size: 1.1rem;
   color: var(--white);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 .nav-logo span { color: var(--cyan); }
-.nav-links { display: flex; gap: 0.2rem; }
+.nav-links { display: flex; gap: 0.1rem; }
 .nav-links a {
   font-family: var(--font-h);
-  font-size: 0.82rem; font-weight: 600;
+  font-size: 0.8rem; font-weight: 600;
   color: var(--grey);
   text-decoration: none;
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.65rem;
   border-radius: 6px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
 }
 .nav-links a:hover, .nav-links a.active {
   color: var(--cyan);
@@ -79,6 +83,17 @@ nav {
   padding: 0.15rem 0.6rem;
   border-radius: 20px;
   letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--cyan);
+  font-size: 1.3rem;
+  width: 42px; height: 38px;
+  cursor: pointer;
 }
 
 /* ── SECTIONS ─────────────────────────────────────────────────────────── */
@@ -153,7 +168,7 @@ h1, h2, h3 { font-family: var(--font-h); }
   opacity: 0; animation: fadeUp 0.6s ease 0.65s forwards;
 }
 .hero-btns {
-  display: flex; gap: 1rem; margin-top: 2.2rem;
+  display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem;
   opacity: 0; animation: fadeUp 0.6s ease 0.8s forwards;
 }
 .btn {
@@ -189,12 +204,6 @@ h1, h2, h3 { font-family: var(--font-h); }
   opacity: 0; animation: fadeIn 0.8s ease 0.5s forwards;
   flex-shrink: 0;
   overflow: hidden;
-}
-.avatar-initials {
-  font-family: var(--font-h);
-  font-size: 3rem; font-weight: 800;
-  color: var(--cyan);
-  letter-spacing: 0.05em;
 }
 .hero-chips {
   display: flex; flex-wrap: wrap; gap: 0.6rem;
@@ -481,6 +490,244 @@ h1, h2, h3 { font-family: var(--font-h); }
   color: #00FFD9;
 }
 
+/* ── STAGE ─────────────────────────────────────────────────────── */
+#stage { min-height: auto; padding-bottom: 5rem; }
+.stage-header {
+  background: linear-gradient(135deg, var(--navy3) 0%, #061428 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.2rem 2.5rem;
+  margin-top: 2.5rem;
+}
+.stage-header h3 {
+  font-size: 1.25rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.stage-header .stage-org {
+  font-family: var(--font-c);
+  font-size: 0.78rem;
+  color: var(--cyan);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.2rem;
+}
+.stage-header p {
+  font-size: 0.9rem;
+  color: #9ab0c8;
+  line-height: 1.8;
+  max-width: 820px;
+}
+.stage-header p strong { color: var(--white); }
+.stage-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+.stage-fact {
+  background: rgba(30,111,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.stage-fact .num {
+  font-family: var(--font-h);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1.1;
+}
+.stage-fact .txt {
+  font-size: 0.78rem;
+  color: var(--grey);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.mission-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.mission-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+.mission-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+}
+.mission-card .m-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.mission-card h4 {
+  font-family: var(--font-h);
+  font-size: 0.98rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.mission-card ul { list-style: none; margin-bottom: 1rem; }
+.mission-card li {
+  font-size: 0.83rem;
+  color: var(--grey);
+  line-height: 1.65;
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+.mission-card li::before {
+  content: '▸';
+  color: var(--blue);
+  position: absolute; left: 0;
+}
+.mission-card li strong { color: #c8d6ea; font-weight: 500; }
+.stage-bilan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.bilan-card {
+  background: linear-gradient(135deg, rgba(30,111,255,0.1), rgba(0,212,255,0.04));
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.8rem;
+}
+.bilan-card h4 {
+  font-family: var(--font-h);
+  font-size: 1rem;
+  color: var(--cyan);
+  margin-bottom: 0.8rem;
+}
+.bilan-card p {
+  font-size: 0.85rem;
+  color: #a0b4cc;
+  line-height: 1.75;
+}
+.bilan-card p + p { margin-top: 0.6rem; }
+.bilan-card strong { color: var(--white); font-weight: 600; }
+
+.stage-doc {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.2rem;
+  margin-top: 1.4rem;
+  padding: 1.1rem 1.3rem;
+  border: 1.5px dashed var(--cyan);
+  border-radius: 10px;
+  background: rgba(0,212,255,0.05);
+}
+.stage-doc-txt strong { display: block; font-family: var(--font-h); color: var(--white); font-size: 0.95rem; margin-bottom: 0.2rem; }
+.stage-doc-txt span { font-size: 0.82rem; color: var(--grey); line-height: 1.5; }
+.stage-doc .btn { white-space: nowrap; flex-shrink: 0; }
+.epreuves-pro { grid-template-columns: repeat(3, 1fr); }
+
+/* ── BADGES COMPÉTENCES (bloc 1) ─────────────────────────────────── */
+.comp-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+.comp-badge {
+  font-family: var(--font-c);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(240,165,0,0.1);
+  border: 1px solid rgba(240,165,0,0.45);
+  color: var(--gold);
+  cursor: help;
+}
+
+/* ── SYNTHÈSE E5 ─────────────────────────────────────────────────── */
+#synthese { min-height: auto; padding-bottom: 5rem; }
+.comp-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+.comp-legend-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.comp-legend-item .code {
+  font-family: var(--font-c);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--gold);
+  border-radius: 5px;
+  padding: 0.15rem 0.45rem;
+  flex-shrink: 0;
+}
+.comp-legend-item .lbl {
+  font-size: 0.8rem;
+  color: #c0cfe2;
+  line-height: 1.45;
+}
+.table-wrap {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.synth-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+.synth-table th, .synth-table td {
+  padding: 0.75rem 0.8rem;
+  border-bottom: 1px solid rgba(30,111,255,0.15);
+  text-align: left;
+  font-size: 0.82rem;
+  vertical-align: middle;
+}
+.synth-table thead th {
+  font-family: var(--font-c);
+  font-size: 0.7rem;
+  color: var(--cyan);
+  letter-spacing: 0.08em;
+  background: var(--navy3);
+  position: sticky; top: 0;
+}
+.synth-table th.c, .synth-table td.c { text-align: center; width: 48px; }
+.synth-table tbody tr:hover { background: rgba(30,111,255,0.06); }
+.synth-table td.r-name { color: var(--white); font-weight: 500; line-height: 1.4; }
+.synth-table td.r-name a { color: var(--white); text-decoration: underline; text-decoration-color: var(--blue); }
+.synth-table td.r-ctx { color: var(--grey); white-space: nowrap; }
+.ctx-pill {
+  font-family: var(--font-c);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.ctx-stage { color: var(--green); border: 1px solid rgba(46,229,157,0.5); background: rgba(46,229,157,0.08); }
+.ctx-form  { color: var(--blue2); border: 1px solid rgba(61,139,255,0.5); background: rgba(61,139,255,0.08); }
+.ctx-perso { color: var(--gold); border: 1px solid rgba(240,165,0,0.5); background: rgba(240,165,0,0.08); }
+.tick { color: var(--green); font-weight: 800; font-size: 1rem; }
+.synth-table tr.group td {
+  font-family: var(--font-c);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  background: rgba(240,165,0,0.05);
+  padding: 0.5rem 0.8rem;
+}
+.synth-note {
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin-top: 0.9rem;
+  line-height: 1.6;
+}
+
 /* ── VEILLE ─────────────────────────────────────────────────────── */
 #veille { min-height: auto; padding-bottom: 5rem; }
 .veille-hero {
@@ -589,6 +836,39 @@ h1, h2, h3 { font-family: var(--font-h); }
 }
 .actu-item h4 { font-size: 0.85rem; color: var(--white); margin-bottom: 0.2rem; }
 .actu-item p { font-size: 0.78rem; color: var(--grey); line-height: 1.5; }
+.actu-item h4 a { color: var(--white); text-decoration: underline; text-decoration-color: var(--blue); }
+.actu-item .actu-src { display: block; margin-top: 0.45rem; font-family: var(--font-c); font-size: 0.66rem; color: var(--blue2); }
+.actu-item.key {
+  border: 1.5px solid var(--gold);
+  background: linear-gradient(135deg, rgba(240,165,0,0.08), var(--card) 60%);
+  box-shadow: 0 0 18px rgba(240,165,0,0.12);
+}
+.actu-item.key .actu-date { color: var(--gold); }
+.key-badge {
+  display: inline-block;
+  font-family: var(--font-c);
+  font-size: 0.62rem; font-weight: 700;
+  color: #000; background: var(--gold);
+  padding: 0.1rem 0.45rem; border-radius: 4px;
+  margin-bottom: 0.35rem; letter-spacing: 0.06em;
+}
+.actu-why { margin-top: 0.4rem; font-size: 0.78rem; color: #e6c27a; line-height: 1.5; }
+.actu-year {
+  font-family: var(--font-c); font-size: 0.72rem; letter-spacing: 0.2em;
+  color: var(--cyan); margin: 1rem 0 0.2rem;
+}
+.veille-legend { font-size: 0.8rem; color: var(--grey); margin-bottom: 0.4rem; line-height: 1.6; }
+.veille-legend b { color: var(--gold); }
+.veille-take {
+  background: linear-gradient(135deg, rgba(30,111,255,0.1), rgba(0,212,255,0.04));
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.8rem;
+}
+.veille-take ul { list-style: none; }
+.veille-take li { font-size: 0.86rem; color: #a0b4cc; line-height: 1.7; padding-left: 1.1rem; position: relative; margin-bottom: 0.5rem; }
+.veille-take li::before { content: '▸'; color: var(--cyan); position: absolute; left: 0; }
+.veille-take li strong { color: var(--white); }
 
 /* ── PROJETS ─────────────────────────────────────────────────────────── */
 #projets { min-height: auto; padding-bottom: 5rem; }
@@ -630,7 +910,7 @@ h1, h2, h3 { font-family: var(--font-h); }
   line-height: 1.4;
 }
 .projet-card p { font-size: 0.82rem; color: var(--grey); line-height: 1.7; margin-bottom: 1rem; }
-.projet-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.projet-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
 .projet-tag {
   font-family: var(--font-c);
   font-size: 0.65rem;
@@ -657,7 +937,7 @@ h1, h2, h3 { font-family: var(--font-h); }
 #cv { min-height: auto; padding-bottom: 5rem; }
 .cv-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2.5rem;
 }
@@ -711,6 +991,7 @@ h1, h2, h3 { font-family: var(--font-h); }
   padding: 1rem 1.2rem;
   text-decoration: none;
   transition: border-color 0.2s;
+  min-width: 0;
 }
 .contact-item:hover { border-color: var(--blue); }
 .contact-item .icon {
@@ -721,8 +1002,9 @@ h1, h2, h3 { font-family: var(--font-h); }
   border-radius: 8px;
   flex-shrink: 0;
 }
+.contact-item .info { min-width: 0; }
 .contact-item .info .label { font-size: 0.7rem; color: var(--grey); font-family: var(--font-c); }
-.contact-item .info .value { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+.contact-item .info .value { font-size: 0.9rem; color: var(--white); font-weight: 500; overflow-wrap: anywhere; }
 .contact-form {
   background: var(--card);
   border: 1px solid var(--border);
@@ -753,6 +1035,7 @@ h1, h2, h3 { font-family: var(--font-h); }
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
 .form-group textarea { resize: vertical; min-height: 100px; }
+.form-hint { font-size: 0.75rem; color: var(--grey); margin-top: 0.8rem; text-align: center; }
 
 /* ── FOOTER ─────────────────────────────────────────────────────── */
 footer {
@@ -794,20 +1077,45 @@ footer span { color: var(--cyan); }
 .page-sub {
   font-size: 0.9rem;
   color: var(--grey);
-  max-width: 600px;
+  max-width: 640px;
   line-height: 1.7;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
+  .nav-badge { display: none; }
+}
+@media (max-width: 960px) {
   nav { padding: 0 1.2rem; }
-  .nav-links { display: none; }
-  section { padding: 5rem 1.2rem 3rem; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(5,13,26,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1rem 1rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.75rem 0.8rem; font-size: 0.9rem; }
+  .stage-facts { grid-template-columns: repeat(2, 1fr); }
+  .cv-grid { grid-template-columns: 1fr 1fr; }
+  .comp-legend { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  section { padding: 5rem 1rem 3rem; }
   .hero-grid, .about-grid, .bts-cards, .veille-topics,
   .projets-grid, .cv-grid, .contact-grid, .sisr-grid,
-  .sources-grid, .cv-info-grid, .epreuves-grid { grid-template-columns: 1fr; }
+  .sources-grid, .cv-info-grid, .epreuves-grid,
+  .mission-grid, .stage-bilan, .comp-legend, .epreuves-pro { grid-template-columns: 1fr; }
+  .stage-doc { flex-direction: column; align-items: flex-start; }
   .hero-avatar { display: none; }
-  .bts-header { grid-template-columns: 1fr; }
+  .bts-header { grid-template-columns: 1fr; padding: 1.6rem; }
+  .bts-badge { white-space: normal; }
+  .about-intro, .stage-header { padding: 1.6rem; }
+  .actu-item { flex-direction: column; gap: 0.3rem; }
 }
 </style>
 </head>
@@ -816,16 +1124,19 @@ footer span { color: var(--cyan); }
 <!-- ── NAVIGATION ───────────────────────────────────────────────── -->
 <nav>
   <div class="nav-logo">ILYASS <span>BEM</span></div>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="#accueil" class="active">Accueil</a>
     <a href="#apropos">À propos</a>
     <a href="#btssio">BTS SIO</a>
-    <a href="#veille">Veille</a>
+    <a href="#stage">Stage</a>
     <a href="#projets">Projets</a>
-    <a href="#cv">CV & Lettre</a>
+    <a href="#synthese">Synthèse E5</a>
+    <a href="#veille">Veille</a>
+    <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-badge">BTS SIO · SISR · 2025-2027</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
@@ -842,24 +1153,30 @@ footer span { color: var(--cyan); }
         <span class="cyan">BEN EL MEKKI</span>
       </h1>
       <p class="hero-title">
-        Étudiant en <strong>BTS SIO – Option SISR</strong> · Administration Systèmes & Réseaux
+        Étudiant en <strong>2e année de BTS SIO – Option SISR</strong> · Administration Systèmes & Réseaux
       </p>
       <p class="hero-desc">
-        Passionné par la cybersécurité et les infrastructures réseau, je développe mes compétences en administration systèmes, configuration réseau et sécurité des SI au sein du Lycée Paul Lapie.
+        Passionné par la cybersécurité et les infrastructures réseau, je développe mes compétences en administration systèmes, configuration réseau et sécurité des SI, en formation au Lycée Paul Lapie et sur le terrain, après un premier stage à la DSI de la mairie de Saint-Ouen-sur-Seine.
       </p>
       <div class="hero-chips">
-        <span class="chip">Debian Linux</span>
+        <span class="chip">Cybersécurité</span>
+        <span class="chip">Administration réseau</span>
+        <span class="chip">VLAN &amp; Routage</span>
         <span class="chip">Cisco IOS</span>
+        <span class="chip">pfSense</span>
         <span class="chip">Windows Server</span>
-        <span class="chip">Docker</span>
         <span class="chip">Active Directory</span>
+        <span class="chip">Debian Linux</span>
+        <span class="chip">Virtualisation VMware</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Support &amp; ITIL</span>
         <span class="chip">GLPI</span>
         <span class="chip">Wireshark</span>
-        <span class="chip">Cybersécurité</span>
+        <span class="chip">Python</span>
       </div>
       <div class="hero-btns">
-        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-        <a href="#contact" class="btn btn-outline">Me contacter</a>
+        <a href="#stage" class="btn btn-primary">Voir mon stage</a>
+        <a href="#synthese" class="btn btn-outline">Tableau de synthèse E5</a>
       </div>
     </div>
     <div class="hero-avatar">
@@ -881,9 +1198,11 @@ footer span { color: var(--cyan); }
   <div class="about-grid" style="margin-top:2.5rem;">
     <div class="about-intro" style="grid-column:1/-1;">
       <p>
-        Je m'appelle <strong>Ilyass BEN EL MEKKI</strong>, j'ai 19 ans et je suis actuellement en première année de <strong>BTS SIO option SISR</strong> au Lycée Paul Lapie à Courbevoie. Après mon baccalauréat général obtenu au Lycée Auguste Blanqui (Saint-Ouen), j'ai choisi de m'orienter vers l'informatique — un domaine qui me passionne depuis plusieurs années — avec un focus particulier sur les <strong>réseaux, la sécurité et l'administration systèmes</strong>.
+        Je m'appelle <strong>Ilyass BEN EL MEKKI</strong> et je suis en <strong>deuxième année de BTS SIO option SISR</strong> au Lycée Paul Lapie à Courbevoie. Après mon baccalauréat général obtenu en 2025 au Lycée Auguste Blanqui (Saint-Ouen-sur-Seine), j'ai choisi de m'orienter vers l'informatique — un domaine qui me passionne depuis plusieurs années — avec un focus particulier sur les <strong>réseaux, la sécurité et l'administration systèmes</strong>.
         <br><br>
-        Curieux, rigoureux et persévérant, je m'investis pleinement dans mes TP et projets scolaires pour acquérir des compétences concrètes et directement applicables en entreprise. Je pratique également la veille informationnelle pour rester à jour sur les évolutions du secteur, notamment en cybersécurité.
+        En fin de première année, j'ai effectué un <strong>stage de six semaines à la DSI de la mairie de Saint-Ouen-sur-Seine</strong> : support aux utilisateurs, déploiement de postes et découverte de l'administration réseau, au service d'environ 1 000 agents. Je recherche aujourd'hui mon stage de deuxième année, <strong>du 22 février au 26 mars 2027</strong>, en administration systèmes et réseaux.
+        <br><br>
+        Curieux, rigoureux et persévérant, je m'investis pleinement dans mes TP et projets pour acquérir des compétences concrètes et directement applicables en entreprise. Je pratique également une veille régulière, notamment en cybersécurité.
       </p>
     </div>
 
@@ -894,7 +1213,7 @@ footer span { color: var(--cyan); }
         <li>Envie de comprendre le fonctionnement réel des infrastructures SI</li>
         <li>Formation professionnalisante avec des TP concrets</li>
         <li>Débouchés nombreux dans un secteur en forte demande</li>
-        <li>Tremplin vers une licence pro ou école d'ingénieur</li>
+        <li>Tremplin vers un bac+3 puis une école d'ingénieur</li>
       </ul>
     </div>
 
@@ -902,10 +1221,10 @@ footer span { color: var(--cyan); }
       <h3>🚀 Objectif professionnel</h3>
       <ul>
         <li>À court terme : valider mon BTS SIO SISR avec mention</li>
-        <li>Stage : du <strong>26 mai au 3 juillet 2026</strong> (trouvé ✅)</li>
-        <li>À moyen terme : licence pro Cybersécurité ou réseaux</li>
+        <li>Stage 1re année : DSI de la mairie de Saint-Ouen-sur-Seine ✅</li>
+        <li>Stage 2e année : du <strong>22 février au 26 mars 2027</strong> (recherche en cours)</li>
+        <li>À moyen terme : bac+3 en alternance, cybersécurité ou réseaux</li>
         <li>À long terme : Ingénieur Sécurité / Administrateur réseau senior</li>
-        <li>Domaines cibles : cybersécurité, cloud, infrastructure</li>
       </ul>
     </div>
 
@@ -913,21 +1232,25 @@ footer span { color: var(--cyan); }
       <h3>🛠️ Compétences techniques</h3>
       <div class="skills-grid">
         <span class="skill-tag">Linux / Debian</span>
+        <span class="skill-tag">Windows 10/11</span>
         <span class="skill-tag">Windows Server</span>
-        <span class="skill-tag">Cisco IOS</span>
         <span class="skill-tag">Active Directory</span>
+        <span class="skill-tag">GPO</span>
         <span class="skill-tag">DHCP / DNS</span>
-        <span class="skill-tag">Docker / WSL2</span>
-        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">VLAN / NAT</span>
+        <span class="skill-tag">Cisco IOS</span>
+        <span class="skill-tag">pfSense</span>
+        <span class="skill-tag">iptables</span>
         <span class="skill-tag">GLPI</span>
+        <span class="skill-tag">RustDesk</span>
+        <span class="skill-tag">Imagerie de postes</span>
+        <span class="skill-tag">TinyMDM</span>
         <span class="skill-tag">VMware</span>
+        <span class="skill-tag">Docker / Compose</span>
+        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">Nmap</span>
         <span class="skill-tag">Python</span>
         <span class="skill-tag">SQL</span>
-        <span class="skill-tag">HTML / CSS</span>
-        <span class="skill-tag">Nmap</span>
-        <span class="skill-tag">iptables</span>
-        <span class="skill-tag">GPO</span>
-        <span class="skill-tag">Pfsense</span>
       </div>
     </div>
 
@@ -935,8 +1258,8 @@ footer span { color: var(--cyan); }
       <h3>📅 Mon parcours</h3>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="year">2024 – 2025</div>
-          <div class="label">Bac Général – Lycée Auguste Blanqui, Saint-Ouen (93)</div>
+          <div class="year">2025</div>
+          <div class="label">Bac Général – Lycée Auguste Blanqui, Saint-Ouen-sur-Seine (93)</div>
         </div>
         <div class="timeline-item">
           <div class="year">2025 – 2027</div>
@@ -944,11 +1267,15 @@ footer span { color: var(--cyan); }
         </div>
         <div class="timeline-item">
           <div class="year">Mai – Juil. 2026</div>
-          <div class="label">Stage en entreprise – Administration Systèmes & Réseaux ✅</div>
+          <div class="label">Stage – DSI de la mairie de Saint-Ouen-sur-Seine ✅</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Fév. – Mars 2027</div>
+          <div class="label">Stage de 2e année – Administration systèmes & réseaux</div>
         </div>
         <div class="timeline-item">
           <div class="year">2027+</div>
-          <div class="label">Licence Pro / École d'ingénieur – Cybersécurité / Réseaux</div>
+          <div class="label">Bac+3 en alternance – Cybersécurité / Réseaux</div>
         </div>
       </div>
     </div>
@@ -960,321 +1287,189 @@ footer span { color: var(--cyan); }
 <!-- ══════════════════════════════════════════════════════════════ -->
 <section id="btssio">
   <div class="section-label">03 · Formation</div>
-  <h2 class="page-title">Le <span>BTS SIO</span></h2>
-  <p class="page-sub">Brevet de Technicien Supérieur en Services Informatiques aux Organisations.</p>
+  <h2 class="page-title">Le <span>BTS SIO</span> option SISR</h2>
+  <p class="page-sub">Brevet de Technicien Supérieur en Services Informatiques aux Organisations · Bac+2 · Lycée Paul Lapie, Courbevoie.</p>
 
-  <div class="bts-header fade-in">
-    <div>
-      <h3 style="font-size:1.2rem;color:var(--white);margin-bottom:0.8rem;">Qu'est-ce que le BTS SIO ?</h3>
-      <p style="font-size:0.88rem;color:#9ab0c8;line-height:1.8;max-width:600px;">
-        Le BTS SIO est une formation de niveau Bac+2 qui prépare aux métiers de l'informatique en entreprise. Il se déroule en <strong style="color:var(--white);">2 ans</strong>, avec des enseignements théoriques, des TP intensifs et deux stages en entreprise. Il existe en deux options : <strong style="color:var(--white);">SLAM</strong> (développement d'applications) et <strong style="color:var(--cyan);">SISR</strong> (infrastructures et réseaux).
-      </p>
-      <div style="display:flex;gap:1rem;margin-top:1.2rem;flex-wrap:wrap;">
-        <div style="background:rgba(30,111,255,0.12);border:1.5px solid var(--blue);border-radius:8px;padding:0.8rem 1.2rem;flex:1;min-width:200px;">
-          <div style="font-family:var(--font-h);font-weight:700;color:var(--white);margin-bottom:0.3rem;">Option SLAM</div>
-          <div style="font-size:0.78rem;color:var(--grey);">Solutions Logicielles et Applications Métiers — Développement web, mobile, BDD, cybersécurité applicative.</div>
-        </div>
-        <div style="background:rgba(0,212,255,0.1);border:1.5px solid var(--cyan);border-radius:8px;padding:0.8rem 1.2rem;flex:1;min-width:200px;">
-          <div style="font-family:var(--font-h);font-weight:700;color:var(--cyan);margin-bottom:0.3rem;">Option SISR ← Mon choix</div>
-          <div style="font-size:0.78rem;color:var(--grey);">Solutions d'Infrastructure, Systèmes et Réseaux — Administration systèmes, réseaux, sécurité, virtualisation.</div>
-        </div>
-      </div>
-    </div>
-    <div class="bts-badge">
-      BTS SIO<br>
-      <span style="font-size:1rem;">Option</span><br>
-      SISR ou SLAM
-      <small>Lycée Paul Lapie · Courbevoie</small>
+  <div class="sisr-highlight fade-in" style="margin-top:2.5rem;">
+    <h3>⚡ Pourquoi l'option SISR, et ce que j'y apprends</h3>
+    <p style="font-size:0.88rem;color:#9ab0c8;line-height:1.8;margin-bottom:1.2rem;">
+      Le BTS SIO propose deux options : SLAM, orientée développement, et <strong style="color:var(--cyan);">SISR</strong>, orientée infrastructures. J'ai choisi SISR parce que ce qui m'intéresse, c'est de faire fonctionner et de sécuriser un système d'information : serveurs, réseau, postes et utilisateurs.
+    </p>
+    <div class="sisr-grid">
+      <div class="sisr-item">Administration de serveurs Linux et Windows (Active Directory, GPO)</div>
+      <div class="sisr-item">Réseau : adressage, VLAN, routage, DHCP, DNS</div>
+      <div class="sisr-item">Sécurisation des accès et des données (pare-feu, VPN)</div>
+      <div class="sisr-item">Virtualisation et conteneurs (VMware, Docker)</div>
+      <div class="sisr-item">Support utilisateurs et gestion de parc (GLPI, ITIL)</div>
+      <div class="sisr-item">Documentation technique et procédures</div>
     </div>
   </div>
 
-  <!-- ── BLOC ÉPREUVES — COULEURS VIVES ────────────────────────── -->
   <div class="epreuves-box fade-in">
-    <h3 class="epreuves-title">📝 Les épreuves du BTS SIO</h3>
+    <h3 class="epreuves-title">📝 Les épreuves professionnelles</h3>
     <p class="epreuves-intro">
-      Le cursus totalise <strong>1 351 heures</strong> de formation sur 2 ans. <strong>7 épreuves</strong> sanctionnent le diplôme pour un total de <strong>22 coefficients</strong>.
+      Le diplôme comporte <strong>7 épreuves</strong>. Les trois épreuves professionnelles ci-dessous pèsent à elles seules <strong>12 coefficients sur 22</strong>, soit plus de la moitié de la note.
     </p>
-    <div class="epreuves-grid">
-
-      <div class="epreuve-card">
-        <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E1</span>
-          <span class="epreuve-coef">COEF 2</span>
-        </div>
-        <div class="epreuve-name">Culture générale et expression</div>
-        <div class="epreuve-modal">📝 Écrit · 3h</div>
-      </div>
-
-      <div class="epreuve-card">
-        <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E2</span>
-          <span class="epreuve-coef">COEF 2</span>
-        </div>
-        <div class="epreuve-name">Anglais</div>
-        <div class="epreuve-modal">📝 Écrit 2h + 🎤 Oral 20 min</div>
-      </div>
-
-      <div class="epreuve-card">
-        <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E3</span>
-          <span class="epreuve-coef">COEF 3</span>
-        </div>
-        <div class="epreuve-name">Mathématiques pour l'informatique</div>
-        <div class="epreuve-modal">📝 Écrit 2h ou CCF</div>
-      </div>
-
-      <div class="epreuve-card">
-        <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E4</span>
-          <span class="epreuve-coef">COEF 3</span>
-        </div>
-        <div class="epreuve-name">Culture économique, juridique et managériale (CEJM)</div>
-        <div class="epreuve-modal">📝 Étude de cas · 4h</div>
-      </div>
+    <div class="epreuves-grid epreuves-pro">
 
       <div class="epreuve-card highlight">
         <div class="epreuve-head">
-          <span class="epreuve-num">⭐ ÉPREUVE E5</span>
+          <span class="epreuve-num">⭐ E5 · CE PORTFOLIO</span>
           <span class="epreuve-coef">COEF 4</span>
         </div>
-        <div class="epreuve-name">Support et mise à disposition de services</div>
-        <div class="epreuve-modal">🎤 Oral 40 min sur portfolio</div>
+        <div class="epreuve-name">Support et mise à disposition de services informatiques</div>
+        <div class="epreuve-modal">🎤 Oral 40 min : 10 min de présentation de mon parcours + 30 min d'échange avec le jury</div>
       </div>
 
       <div class="epreuve-card">
         <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E6</span>
+          <span class="epreuve-num">E6</span>
           <span class="epreuve-coef">COEF 4</span>
         </div>
-        <div class="epreuve-name">Spécialité SISR ou SLAM</div>
-        <div class="epreuve-modal">⏱️ Préparation 1h30 + 🎤 Oral 40 min</div>
+        <div class="epreuve-name">Administration des systèmes et des réseaux</div>
+        <div class="epreuve-modal">⏱️ Préparation 1h30 + 🎤 épreuve pratique et orale 40 min, sur deux réalisations professionnelles</div>
       </div>
 
-      <div class="epreuve-card" style="grid-column:1/-1;">
+      <div class="epreuve-card">
         <div class="epreuve-head">
-          <span class="epreuve-num">ÉPREUVE E7</span>
+          <span class="epreuve-num">E7</span>
           <span class="epreuve-coef">COEF 4</span>
         </div>
-        <div class="epreuve-name">Cybersécurité</div>
-        <div class="epreuve-modal">📝 Écrit · 4h</div>
+        <div class="epreuve-name">Cybersécurité des services informatiques</div>
+        <div class="epreuve-modal">📝 Étude de cas écrite · 4h</div>
       </div>
 
-    </div>
-  </div>
-
-  <div class="bts-cards">
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">🌐</div>
-      <h4>Réseaux & Télécoms</h4>
-      <p>Configuration de switches, routeurs, VLANs, protocoles TCP/IP, routage statique et dynamique.</p>
-    </div>
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">🖥️</div>
-      <h4>Systèmes</h4>
-      <p>Administration Linux (Debian) et Windows Server, virtualisation, Active Directory, GPO.</p>
-    </div>
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">🔒</div>
-      <h4>Cybersécurité</h4>
-      <p>Sécurisation des accès, firewall, analyse de trafic, sensibilisation aux menaces informatiques.</p>
-    </div>
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">📦</div>
-      <h4>Virtualisation</h4>
-      <p>Déploiement de VMs avec VMware/VirtualBox, conteneurs Docker, environnements WSL2.</p>
-    </div>
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">🛠️</div>
-      <h4>Support & Helpdesk</h4>
-      <p>Gestion de parc avec GLPI, tickets d'incidents, maintenance préventive et curative.</p>
-    </div>
-    <div class="bts-card fade-in">
-      <div class="bts-card-icon">📋</div>
-      <h4>Documentation</h4>
-      <p>Rédaction de procédures techniques, schémas réseau, rapports d'intervention et tutoriels.</p>
-    </div>
-  </div>
-
-   <div style="background:linear-gradient(135deg,rgba(30,111,255,0.1),rgba(30,111,255,0.04));border:1.5px solid var(--blue);border-radius:var(--radius);padding:1.8rem 2rem;margin-top:1.5rem;" class="fade-in">
-    <h3 style="color:var(--white);font-size:1.05rem;margin-bottom:1rem;">💻 Option SLAM – Solutions Logicielles et Applications Métiers</h3>
-    <p style="font-size:0.85rem;color:#9ab0c8;margin-bottom:1rem;line-height:1.7;">
-      L'option SLAM forme des développeurs capables de concevoir, coder et maintenir des applications logicielles pour les entreprises. Elle est orientée programmation, développement web/mobile et gestion de bases de données.
-    </p>
-    <div class="sisr-grid">
-      <div class="sisr-item">Développement d'applications web (HTML, CSS, JS, PHP)</div>
-      <div class="sisr-item">Programmation orientée objet (Java, Python, C#)</div>
-      <div class="sisr-item">Conception et gestion de bases de données (SQL, MySQL)</div>
-      <div class="sisr-item">Développement d'applications mobiles (Android, iOS)</div>
-      <div class="sisr-item">Cybersécurité applicative (injection SQL, XSS, OWASP)</div>
-      <div class="sisr-item">Gestion de projets logiciels (méthodes Agile, Scrum)</div>
-      <div class="sisr-item">Intégration et déploiement continu (CI/CD, Git)</div>
-      <div class="sisr-item">Tests et recette d'applications (tests unitaires, fonctionnels)</div>
-    </div>
-  </div>
-
-  <div class="sisr-highlight fade-in">
-    <h3>⚡ L'option SISR – Solutions d'Infrastructure, Systèmes et Réseaux</h3>
-    <div class="sisr-grid">
-      <div class="sisr-item">Conception et administration d'infrastructures réseaux</div>
-      <div class="sisr-item">Installation et configuration de serveurs physiques et virtuels</div>
-      <div class="sisr-item">Mise en place de solutions de haute disponibilité</div>
-      <div class="sisr-item">Sécurisation des accès et des données (VPN, firewall)</div>
-      <div class="sisr-item">Supervision et monitoring des systèmes (SNMP, Nagios)</div>
-      <div class="sisr-item">Gestion du parc informatique et helpdesk (ITIL)</div>
-      <div class="sisr-item">Déploiement de services cloud et conteneurisation</div>
-      <div class="sisr-item">Analyse et résolution d'incidents réseau</div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<!-- 4. VEILLE INFORMATIONNELLE -->
+<!-- 4. STAGE -->
 <!-- ══════════════════════════════════════════════════════════════ -->
-<section id="veille">
-  <div class="section-label">04 · Veille informationnelle</div>
-  <h2 class="page-title">L'<span>IA</span> dans la cybersécurité</h2>
-  <p class="page-sub">Sujet de veille technologique – Mise à jour continue tout au long de l'année.</p>
+<section id="stage">
+  <div class="section-label">04 · Expérience professionnelle</div>
+  <h2 class="page-title">Stage à la <span>DSI</span> de Saint-Ouen</h2>
+  <p class="page-sub">Stage de première année · du 26 mai au 3 juillet 2026 · 6 semaines.</p>
 
-  <div class="veille-hero fade-in">
-    <div class="sub">VEILLE TECHNOLOGIQUE · IA & CYBERSÉCURITÉ</div>
-    <h2>L'Intelligence Artificielle au service de la sécurité informatique</h2>
-    <p style="margin-top:1rem;">
-      L'Intelligence Artificielle révolutionne le domaine de la cybersécurité en permettant une détection plus rapide et plus précise des menaces, mais aussi en offrant aux attaquants de nouveaux outils d'offensive. Cette veille explore les deux faces de cette transformation : l'IA comme bouclier défensif et comme arme offensive, ainsi que les enjeux éthiques et réglementaires qui en découlent.
+  <div class="stage-header fade-in">
+    <h3>Stagiaire technicien support informatique</h3>
+    <div class="stage-org">DIRECTION DES SYSTÈMES D'INFORMATION · MAIRIE DE SAINT-OUEN-SUR-SEINE (93)</div>
+    <p>
+      La DSI assure le fonctionnement et la sécurité du système d'information de la ville : support aux agents, gestion du parc informatique et téléphonique, infrastructure réseau et serveurs, logiciels métiers. Elle intervient à l'hôtel de ville comme sur l'ensemble des sites municipaux (écoles, piscine, centres de santé, commissariat…).
+      <br><br>
+      Encadré par <strong>M. Mohamed MOUSTAINE</strong>, directeur du service, j'ai travaillé en <strong>binôme tournant</strong> : chaque jour aux côtés d'un membre différent de l'équipe (techniciens support, administrateurs réseau, gestionnaires applicatifs), ce qui m'a donné une vision complète du fonctionnement d'une DSI de collectivité.
     </p>
-  </div>
-
-  <div class="veille-section">
-    <h3>🔍 Les grandes thématiques</h3>
-    <div class="veille-topics">
-      <div class="veille-topic fade-in">
-        <span class="tag">DÉFENSE</span>
-        <h4>Détection d'intrusions par Machine Learning</h4>
-        <p>Les systèmes IDS/IPS nouvelle génération (comme Darktrace ou CrowdStrike) utilisent des modèles d'apprentissage automatique pour détecter des comportements anormaux en temps réel sur le réseau, réduisant le taux de faux positifs de plus de 50% par rapport aux systèmes à base de signatures.</p>
+    <div class="stage-facts">
+      <div class="stage-fact"><div class="num">6</div><div class="txt">semaines de stage en DSI municipale</div></div>
+      <div class="stage-fact"><div class="num">~1 000</div><div class="txt">agents utilisateurs du SI de la ville</div></div>
+      <div class="stage-fact"><div class="num">8+</div><div class="txt">sites distants où je suis intervenu</div></div>
+      <div class="stage-fact"><div class="num">5</div><div class="txt">PC déployés par image en autonomie en fin de stage</div></div>
+    </div>
+    <div class="stage-doc">
+      <div class="stage-doc-txt">
+        <strong>📘 Rapport de stage complet</strong>
+        <span>11 pages : présentation de la DSI, missions détaillées, compétences, difficultés et journal de bord jour par jour.</span>
       </div>
-      <div class="veille-topic fade-in">
-        <span class="tag">OFFENSE</span>
-        <h4>Deepfakes & ingénierie sociale augmentée</h4>
-        <p>Les deepfakes audio et vidéo générés par IA permettent aux cybercriminels de créer des attaques de phishing ultra-réalistes (vishing). En 2024, une entreprise hongkongaise a perdu 25 millions de dollars à cause d'une visioconférence falsifiée entièrement générée par IA.</p>
-      </div>
-      <div class="veille-topic fade-in">
-        <span class="tag">OFFENSE</span>
-        <h4>LLMs utilisés pour générer des malwares</h4>
-        <p>Des variantes malveillantes de LLMs comme WormGPT ou FraudGPT (sans garde-fous éthiques) permettent à des attaquants non-techniques de générer du code malveillant, des emails de phishing personnalisés et des exploits automatisés, démocratisant ainsi la cybercriminalité.</p>
-      </div>
-      <div class="veille-topic fade-in">
-        <span class="tag">DÉFENSE</span>
-        <h4>SOC automatisés & réponse aux incidents</h4>
-        <p>Les SOAR (Security Orchestration, Automation and Response) alimentés par l'IA permettent d'automatiser la corrélation d'alertes et la réponse aux incidents. Microsoft Sentinel et Splunk SOAR réduisent le temps de réponse moyen (MTTR) de plusieurs heures à quelques minutes.</p>
-      </div>
-      <div class="veille-topic fade-in">
-        <span class="tag">DÉFENSE</span>
-        <h4>Analyse comportementale des utilisateurs (UEBA)</h4>
-        <p>L'User and Entity Behavior Analytics utilise l'IA pour établir un profil comportemental de chaque utilisateur et détecter les menaces internes (insider threats) ou les comptes compromis, même lorsque les identifiants sont valides.</p>
-      </div>
-      <div class="veille-topic fade-in">
-        <span class="tag">RÉGLEMENTATION</span>
-        <h4>EU AI Act & encadrement des IA en sécurité</h4>
-        <p>Entré en vigueur en 2024, l'AI Act européen classe les IA utilisées en cybersécurité dans les systèmes "à haut risque". Les entreprises doivent désormais documenter leurs modèles, garantir leur traçabilité et soumettre les IA critiques à des audits de conformité.</p>
-      </div>
+      <a href="Rapport_de_stage_Ilyass_BEN_EL_MEKKI.pdf" target="_blank" class="btn btn-primary">Lire le rapport</a>
     </div>
   </div>
 
-  <div class="veille-section">
-   <h3>📰 Actualités récentes</h3>
-    <div class="actu-list">
+  <div class="mission-grid">
 
-      <div class="actu-item fade-in">
-        <div class="actu-date">04 fév. 2026</div>
-        <div>
-          <h4><a href="https://www.lemondeinformatique.fr/actualites/lire-l-anssi-livre-son-bilan-de-la-menace-ia-en-2025-99262.html" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">L'ANSSI publie son bilan de la menace IA en 2025</a></h4>
-          <p>L'Agence Nationale de la Sécurité des Systèmes d'Information dévoile une synthèse de 12 pages sur l'usage offensif de l'IA générative. Le rapport détaille comment les attaquants utilisent désormais les LLM pour créer des emails de phishing multilingues, du code malveillant polymorphique et exploiter les failles dans les agents Model Context Protocol (MCP). Source : Le Monde Informatique.</p>
-        </div>
+    <div class="mission-card fade-in">
+      <div class="m-icon">🎧</div>
+      <h4>Support utilisateurs & helpdesk</h4>
+      <ul>
+        <li>Suivi des demandes d'assistance dans <strong>GLPI</strong>, de l'ouverture du ticket jusqu'à la résolution.</li>
+        <li>Diagnostic méthodique d'incidents matériels et logiciels : du branchement défectueux (station d'accueil, double écran, casque) au smartphone à sauvegarder puis réinitialiser.</li>
+        <li>Prise en main à distance avec <strong>RustDesk</strong> : configuration Outlook, installation de pilotes, accompagnement d'un agent en télétravail pour son accès VPN.</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Répondre aux incidents et aux demandes d'assistance et d'évolution">C2 · Incidents & assistance</span>
       </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">23 jan. 2026</div>
-        <div>
-          <h4><a href="https://www.lemondeinformatique.fr/actualites/lire-barometre-cesin-2025-des-attaques-plus-virulentes-mais-mieux-maitrisees-99136.html" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">Baromètre CESIN 2025 : des cyberattaques plus virulentes mais mieux maîtrisées</a></h4>
-          <p>Le club des experts cyber publie sa 11ᵉ édition : 47 % des entreprises françaises ont subi une cyberattaque majeure en 2024. Les deepfakes ne représentent plus que 5 % des vecteurs d'attaque (-4 points), notamment grâce aux outils de détection IA, mais les pertes restent importantes lorsqu'ils réussissent.</p>
-        </div>
-      </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">22 oct. 2025</div>
-        <div>
-          <h4><a href="https://www.silicon.fr/cybersecurite-1371/tribune-expert-deepfakes-la-prochaine-faille-humaine-des-entreprises-224004" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">Deepfakes : la prochaine faille humaine des entreprises</a></h4>
-          <p>Silicon analyse l'industrialisation des deepfakes en 2025 : le clonage vocal nécessite désormais quelques secondes d'enregistrement public (YouTube, TikTok). Le rapport Anozr Way prévoit une explosion de 500 000 deepfakes en 2023 à 8 millions en 2025. Les cadres dirigeants sont les cibles privilégiées.</p>
-        </div>
-      </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">02 août 2025</div>
-        <div>
-          <h4><a href="https://digital-strategy.ec.europa.eu/fr/policies/regulatory-framework-ai" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">AI Act : entrée en application des obligations pour les IA à usage général</a></h4>
-          <p>Nouvelle étape majeure dans l'application progressive de l'AI Act européen (Règlement UE 2024/1689) : les fournisseurs de modèles d'IA à usage général (GPT, Mistral, Gemini...) doivent désormais documenter leurs modèles, garantir la transparence et respecter les droits d'auteur. Sanctions jusqu'à 35 M€ ou 7 % du CA mondial.</p>
-        </div>
-      </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">18 juil. 2025</div>
-        <div>
-          <h4><a href="https://cyber.gouv.fr/nous-connaitre/publications/etude-de-marche/etude-de-marche-ia/" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">Étude ANSSI : l'IA au service des SOC français</a></h4>
-          <p>L'ANSSI publie une étude inédite sur l'usage de l'IA dans les Security Operations Centers. Distinction entre PredAI (machine learning pour la détection, déjà mature dans les EDR) et GenAI (assistant d'enquête, plus récent). 48 entreprises consultées, recommandations pour éviter les hallucinations et sécuriser les déploiements.</p>
-        </div>
-      </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">10 fév. 2025</div>
-        <div>
-          <h4><a href="https://www.usine-digitale.fr/article/cybersecurite-l-anssi-fournit-plusieurs-recommandations-pour-securiser-les-systemes-d-ia.N2227231" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">Sommet pour l'action sur l'IA : l'ANSSI publie ses recommandations</a></h4>
-          <p>Lors du sommet international à Paris, l'ANSSI co-signe avec 16 agences nationales (Royaume-Uni, Canada, Allemagne, Corée du Sud...) un rapport sur la sécurisation des systèmes d'IA. Recommandations clés : cartographier la supply chain, limiter l'autonomie des systèmes, maintenir une supervision humaine et faire de la veille technologique.</p>
-        </div>
-      </div>
-
-      <div class="actu-item fade-in">
-        <div class="actu-date">02 fév. 2025</div>
-        <div>
-          <h4><a href="https://www.cnil.fr/fr/entree-en-vigueur-du-reglement-europeen-sur-lia-les-premieres-questions-reponses-de-la-cnil" target="_blank" style="color:var(--white);text-decoration:underline;text-decoration-color:var(--blue);">AI Act : interdiction des IA à risque inacceptable</a></h4>
-          <p>Première phase d'application de l'AI Act européen : les systèmes d'IA jugés à risque inacceptable (notation sociale, manipulation cognitive, catégorisation biométrique...) sont désormais interdits dans l'Union européenne. La CNIL est désignée comme autorité française de contrôle.</p>
-        </div>
-      </div>
-
     </div>
+
+    <div class="mission-card fade-in">
+      <div class="m-icon">💻</div>
+      <h4>Déploiement de postes par image</h4>
+      <ul>
+        <li>Installation de <strong>Windows 10/11</strong> à partir d'une image de référence par démarrage réseau (BIOS, Secure Boot, boot PXE en IPv4), environ 1 h par poste.</li>
+        <li>Préparation de kits complets pour 3 élus et installation de postes pour de nouveaux agents : profil utilisateur, mot de passe robuste, messagerie.</li>
+        <li>Remplacement de postes à la piscine municipale en conservant les données des utilisateurs, puis <strong>5 mini-PC déployés en autonomie</strong>.</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Gérer le patrimoine informatique">C1 · Patrimoine informatique</span>
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+      </div>
+    </div>
+
+    <div class="mission-card fade-in">
+      <div class="m-icon">📱</div>
+      <h4>Terminaux mobiles & impression sécurisée</h4>
+      <ul>
+        <li>Configuration et sécurisation de smartphones avec la solution MDM <strong>TinyMDM</strong>, dont le téléphone d'un élu.</li>
+        <li>Installation de <strong>PaperCut</strong> sur les imprimantes du centre municipal de santé : impression sécurisée, le document n'est libéré qu'après authentification de l'agent.</li>
+        <li>Réinitialisation de mots de passe sur le portail agents.</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Gérer le patrimoine informatique">C1 · Patrimoine informatique</span>
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+      </div>
+    </div>
+
+    <div class="mission-card fade-in">
+      <div class="m-icon">🌐</div>
+      <h4>Réseau & téléphonie IP</h4>
+      <ul>
+        <li>Résolution d'incidents de connectivité : câbles Ethernet défectueux, poste connecté au Wi-Fi public au lieu du réseau interne.</li>
+        <li>Participation au <strong>remplacement et à la configuration de deux switchs</strong> dans une école, avec les administrateurs réseau.</li>
+        <li>Découverte de la téléphonie sur IP (XiVO) et installation de téléphones IP.</li>
+        <li>Panne au commissariat dont l'origine était externe : j'ai appris à identifier quand il faut escalader vers l'opérateur.</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Répondre aux incidents et aux demandes d'assistance et d'évolution">C2 · Incidents & assistance</span>
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+      </div>
+    </div>
+
+    <div class="mission-card fade-in">
+      <div class="m-icon">🖥️</div>
+      <h4>Administration systèmes & réseau (observation)</h4>
+      <ul>
+        <li>Journée aux côtés d'un administrateur réseau : supervision avec <strong>Zabbix</strong>, gestion des comptes dans <strong>Active Directory</strong>, administration en <strong>PowerShell</strong> et en <strong>SSH</strong>, bureau à distance, machines virtuelles.</li>
+        <li>Visite de la salle serveur : serveurs de fichiers et de messagerie, sauvegardes, équipements actifs (switchs, routeurs, pare-feu).</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Organiser son développement professionnel">C6 · Développement pro</span>
+      </div>
+    </div>
+
+    <div class="mission-card fade-in">
+      <div class="m-icon">🧭</div>
+      <h4>Découverte des métiers de la DSI</h4>
+      <ul>
+        <li><strong>Gestion applicative</strong> : maintien des logiciels métiers (finances, santé, RH, gestion des accès) et lien entre les services, la DSI et les éditeurs.</li>
+        <li><strong>Gestion administrative et financière</strong> : budget, contrats et marchés publics d'une DSI.</li>
+        <li>Tenue d'un <strong>journal de bord quotidien</strong> et rédaction du rapport de stage.</li>
+      </ul>
+      <div class="comp-row">
+        <span class="comp-badge" title="Organiser son développement professionnel">C6 · Développement pro</span>
+      </div>
+    </div>
+
   </div>
 
-  <div class="veille-section">
-    <h3>📚 Sources & Références</h3>
-    <div class="sources-grid">
-      <div class="source-card fade-in">
-        <div class="source-name">ANSSI</div>
-        <div class="source-type">OFFICIEL · FRANÇAIS</div>
-        <p>Agence nationale française de référence en cybersécurité. Guides, alertes et recommandations officiels.</p>
-      </div>
-      <div class="source-card fade-in">
-        <div class="source-name">Le Monde Informatique</div>
-        <div class="source-type">MÉDIA FR</div>
-        <p>Actualités IT et cybersécurité en français, analyses approfondies des cyberattaques et tendances du secteur.</p>
-      </div>
-      <div class="source-card fade-in">
-        <div class="source-name">CNIL</div>
-        <div class="source-type">OFFICIEL · FRANÇAIS</div>
-        <p>Commission Nationale Informatique et Libertés. Autorité française de contrôle de l'AI Act et du RGPD.</p>
-      </div>
-      <div class="source-card fade-in">
-        <div class="source-name">Silicon.fr</div>
-        <div class="source-type">MÉDIA FR</div>
-        <p>Média spécialisé IT français : actualités cybersécurité, tribunes d'experts et analyses sectorielles.</p>
-      </div>
-      <div class="source-card fade-in">
-        <div class="source-name">L'Usine Digitale</div>
-        <div class="source-type">MÉDIA FR</div>
-        <p>Média de référence sur la transformation numérique des entreprises et la cybersécurité en France.</p>
-      </div>
-      <div class="source-card fade-in">
-        <div class="source-name">LeMagIT</div>
-        <div class="source-type">MÉDIA FR</div>
-        <p>Actualités IT et cybersécurité en français, avec focus sur les entreprises et les nouvelles technologies IA.</p>
-      </div>
+  <div class="stage-bilan">
+    <div class="bilan-card fade-in">
+      <h4>🤝 Compétences transversales</h4>
+      <p><strong>Autonomie</strong> : déplacements seul ou en binôme sur les différents sites de la ville, jusqu'à réaliser des déploiements complets sans encadrement.</p>
+      <p><strong>Communication</strong> : expliquer une solution technique à des agents peu familiers avec l'informatique, avec patience et pédagogie.</p>
+      <p><strong>Organisation</strong> : enchaîner plusieurs interventions dans la journée en respectant les priorités.</p>
+    </div>
+    <div class="bilan-card fade-in">
+      <h4>📌 Ce que j'en retiens</h4>
+      <p>Ce stage a confirmé mon choix de l'option SISR. J'ai appris à <strong>toujours vérifier le plus simple avant le plus complexe</strong>, à documenter chaque intervention et à solliciter l'aide de l'équipe ou d'un prestataire quand un problème dépasse mon périmètre.</p>
+      <p>Il m'a aussi montré qu'une DSI repose autant sur l'organisation, le budget et la relation aux utilisateurs que sur la technique.</p>
     </div>
   </div>
 </section>
@@ -1285,7 +1480,7 @@ footer span { color: var(--cyan); }
 <section id="projets">
   <div class="section-label">05 · Projets & Tutoriels</div>
   <h2 class="page-title">Mes <span>Travaux Pratiques</span></h2>
-  <p class="page-sub">Tutoriels réalisés en cours tout au long de la 1ère année de BTS SIO SISR.</p>
+  <p class="page-sub">Tutoriels réalisés en cours en première année de BTS SIO SISR. Chaque carte indique les compétences du bloc 1 qu'elle mobilise.</p>
 
   <div class="projets-grid">
 
@@ -1300,6 +1495,9 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">BIND9</span>
         <span class="projet-tag">iptables</span>
         <span class="projet-tag">NAT</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
       </div>
       <a href="Tuto1%20-%20Debian%20%2CDHCP%2C%20DNS%2C%20Routeur.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
@@ -1316,6 +1514,9 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">Switch L3</span>
         <span class="projet-tag">Trunk</span>
       </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+      </div>
       <a href="Tuto2%20-%20Cisco%2C%20InterVLAN.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
 
@@ -1330,6 +1531,10 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">OSI</span>
         <span class="projet-tag">Filtres</span>
         <span class="projet-tag">Capture réseau</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Répondre aux incidents et aux demandes d'assistance et d'évolution">C2 · Incidents & assistance</span>
+        <span class="comp-badge" title="Organiser son développement professionnel">C6 · Développement pro</span>
       </div>
       <a href="Tuto3%20-%20Wireshark%20%2CPing.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
@@ -1346,6 +1551,10 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">DNS</span>
         <span class="projet-tag">PowerShell</span>
       </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Gérer le patrimoine informatique">C1 · Patrimoine informatique</span>
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+      </div>
       <a href="Tuto4%20-%20WindowsServer%20%2CAD.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
 
@@ -1360,6 +1569,10 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">MariaDB</span>
         <span class="projet-tag">PHP 8.2</span>
         <span class="projet-tag">ITIL</span>
+      </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Gérer le patrimoine informatique">C1 · Patrimoine informatique</span>
+        <span class="comp-badge" title="Répondre aux incidents et aux demandes d'assistance et d'évolution">C2 · Incidents & assistance</span>
       </div>
       <a href="Tuto5%20-%20GLPI.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
@@ -1376,6 +1589,10 @@ footer span { color: var(--cyan); }
         <span class="projet-tag">Dockerfile</span>
         <span class="projet-tag">Docker Compose</span>
       </div>
+      <div class="comp-row">
+        <span class="comp-badge" title="Mettre à disposition des utilisateurs un service informatique">C5 · Mise à disposition</span>
+        <span class="comp-badge" title="Organiser son développement professionnel">C6 · Développement pro</span>
+      </div>
       <a href="Tuto6%20-%20Docker%20%2CWSL2.pdf" target="_blank" class="projet-btn">📄 Voir le tutoriel</a>
     </div>
 
@@ -1383,53 +1600,458 @@ footer span { color: var(--cyan); }
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<!-- 6. CV & LETTRE DE MOTIVATION -->
+<!-- 6. SYNTHÈSE E5 -->
 <!-- ══════════════════════════════════════════════════════════════ -->
-<section id="cv">
-  <div class="section-label">06 · CV & Lettre</div>
-  <h2 class="page-title">CV & Lettre de <span>Motivation</span></h2>
-  <p class="page-sub">Documents professionnels pour ma recherche de stage et mon insertion professionnelle.</p>
+<section id="synthese">
+  <div class="section-label">06 · Épreuve E5</div>
+  <h2 class="page-title">Tableau de <span>synthèse</span></h2>
+  <p class="page-sub">Mes réalisations professionnelles croisées avec les six compétences du bloc 1 « Support et mise à disposition de services informatiques ».</p>
 
-  <div class="cv-grid">
-    <div class="cv-card fade-in">
-      <div class="cv-icon">📄</div>
-      <h3>Curriculum Vitae</h3>
-      <p>Mon CV professionnel présentant mon parcours scolaire, mes compétences techniques, mes expériences et centres d'intérêt.</p>
-      <a href="CV%20Professionnel%20.pdf" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Télécharger le CV</a>
+  <div class="comp-legend">
+    <div class="comp-legend-item fade-in"><span class="code">C1</span><span class="lbl">Gérer le patrimoine informatique</span></div>
+    <div class="comp-legend-item fade-in"><span class="code">C2</span><span class="lbl">Répondre aux incidents et aux demandes d'assistance et d'évolution</span></div>
+    <div class="comp-legend-item fade-in"><span class="code">C3</span><span class="lbl">Développer la présence en ligne de l'organisation</span></div>
+    <div class="comp-legend-item fade-in"><span class="code">C4</span><span class="lbl">Travailler en mode projet</span></div>
+    <div class="comp-legend-item fade-in"><span class="code">C5</span><span class="lbl">Mettre à disposition des utilisateurs un service informatique</span></div>
+    <div class="comp-legend-item fade-in"><span class="code">C6</span><span class="lbl">Organiser son développement professionnel</span></div>
+  </div>
+
+  <div class="table-wrap fade-in">
+    <table class="synth-table">
+      <thead>
+        <tr>
+          <th>Réalisation</th>
+          <th>Contexte</th>
+          <th>Période</th>
+          <th class="c">C1</th>
+          <th class="c">C2</th>
+          <th class="c">C3</th>
+          <th class="c">C4</th>
+          <th class="c">C5</th>
+          <th class="c">C6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group"><td colspan="9">EN MILIEU PROFESSIONNEL</td></tr>
+        <tr>
+          <td class="r-name"><a href="#stage">Assistance aux utilisateurs et suivi des tickets (GLPI, RustDesk)</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-stage">Stage DSI</span></td>
+          <td class="r-ctx">Mai – Juil. 2026</td>
+          <td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="#stage">Déploiement de postes Windows par image et installation de postes agents</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-stage">Stage DSI</span></td>
+          <td class="r-ctx">Mai – Juil. 2026</td>
+          <td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="#stage">Sécurisation de terminaux mobiles (TinyMDM) et impression sécurisée (PaperCut)</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-stage">Stage DSI</span></td>
+          <td class="r-ctx">Juin – Juil. 2026</td>
+          <td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="#stage">Incidents réseau et remplacement de switchs sur site distant</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-stage">Stage DSI</span></td>
+          <td class="r-ctx">Juin – Juil. 2026</td>
+          <td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="#stage">Découverte des métiers et outils d'une DSI, journal de bord</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-stage">Stage DSI</span></td>
+          <td class="r-ctx">Mai – Juil. 2026</td>
+          <td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td>
+        </tr>
+
+        <tr class="group"><td colspan="9">EN FORMATION</td></tr>
+        <tr>
+          <td class="r-name"><a href="Tuto1%20-%20Debian%20%2CDHCP%2C%20DNS%2C%20Routeur.pdf" target="_blank">Passerelle Debian 12 : DHCP, DNS et routage NAT</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="Tuto2%20-%20Cisco%2C%20InterVLAN.pdf" target="_blank">Routage inter-VLAN sur équipements Cisco</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="Tuto3%20-%20Wireshark%20%2CPing.pdf" target="_blank">Analyse de trafic ICMP avec Wireshark</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="Tuto4%20-%20WindowsServer%20%2CAD.pdf" target="_blank">Domaine Active Directory et GPO sous Windows Server</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="Tuto5%20-%20GLPI.pdf" target="_blank">Gestion de parc et helpdesk avec GLPI 10</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"><span class="tick">✓</span></td><td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="Tuto6%20-%20Docker%20%2CWSL2.pdf" target="_blank">Conteneurisation avec Docker et Docker Compose sous WSL2</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-form">TP</span></td>
+          <td class="r-ctx">2025 – 2026</td>
+          <td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"><span class="tick">✓</span></td>
+        </tr>
+
+        <tr class="group"><td colspan="9">DÉVELOPPEMENT PROFESSIONNEL</td></tr>
+        <tr>
+          <td class="r-name"><a href="#veille">Veille technologique : l'IA dans la cybersécurité</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-perso">Veille</span></td>
+          <td class="r-ctx">2025 – 2027</td>
+          <td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td>
+        </tr>
+        <tr>
+          <td class="r-name"><a href="#accueil">Conception et publication de ce portfolio (GitHub Pages)</a></td>
+          <td class="r-ctx"><span class="ctx-pill ctx-perso">Personnel</span></td>
+          <td class="r-ctx">2025 – 2027</td>
+          <td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td><td class="c"></td><td class="c"></td><td class="c"><span class="tick">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="synth-note">Tableau mis à jour au fil de la formation : les projets et le stage de deuxième année y seront ajoutés.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- 7. VEILLE INFORMATIONNELLE -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="veille">
+  <div class="section-label">07 · Veille informationnelle</div>
+  <h2 class="page-title">L'<span>IA</span> dans la cybersécurité</h2>
+  <p class="page-sub">Sujet de veille technologique – Mise à jour continue tout au long de la formation. Dernière mise à jour : octobre 2026.</p>
+
+  <div class="veille-hero fade-in">
+    <div class="sub">VEILLE TECHNOLOGIQUE · IA & CYBERSÉCURITÉ</div>
+    <h2>L'Intelligence Artificielle au service de la sécurité informatique</h2>
+    <p style="margin-top:1rem;">
+      L'Intelligence Artificielle transforme la cybersécurité en permettant une détection plus rapide et plus précise des menaces, mais aussi en offrant aux attaquants de nouveaux outils d'offensive. Cette veille explore les deux faces de cette transformation : l'IA comme bouclier défensif et comme arme offensive, ainsi que les enjeux réglementaires qui en découlent. En 2026, le sujet a basculé vers deux questions concrètes : les <strong style="color:var(--white);">agents IA autonomes</strong> installés sur les postes de travail, et les IA capables de <strong style="color:var(--white);">trouver seules des failles</strong> dans les logiciels.
+    </p>
+  </div>
+
+  <div class="veille-section">
+    <h3>🔍 Les grandes thématiques</h3>
+    <div class="veille-topics">
+      <div class="veille-topic fade-in">
+        <span class="tag">DÉFENSE</span>
+        <h4>Détection d'intrusions par Machine Learning</h4>
+        <p>Les outils de détection nouvelle génération (EDR, NDR) utilisent l'apprentissage automatique pour repérer des comportements anormaux sur le réseau ou les postes, là où les systèmes classiques ne reconnaissent que des signatures d'attaques déjà connues.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">OFFENSE</span>
+        <h4>Deepfakes & ingénierie sociale augmentée</h4>
+        <p>Les deepfakes audio et vidéo permettent des arnaques très réalistes, comme le faux appel ou la fausse visioconférence d'un dirigeant. En 2024, une entreprise de Hong Kong a perdu 25 millions de dollars lors d'une visioconférence entièrement falsifiée par IA.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">OFFENSE</span>
+        <h4>LLM détournés pour attaquer</h4>
+        <p>Des modèles sans garde-fous comme WormGPT ou FraudGPT, et le détournement d'IA grand public, aident des attaquants peu qualifiés à rédiger des emails de phishing personnalisés et du code malveillant.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">OFFENSE · NOUVEAU 2026</span>
+        <h4>Découverte automatisée de failles</h4>
+        <p>Des modèles comme Claude Mythos Preview (Anthropic) sont capables de trouver et d'exploiter seuls des vulnérabilités inconnues (zero-day). Utilisée en défense, cette capacité permet de corriger plus vite ; entre de mauvaises mains, elle rendrait des attaques complexes accessibles à tous.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">RISQUE · NOUVEAU 2026</span>
+        <h4>Agents IA autonomes sur les postes</h4>
+        <p>Les assistants qui agissent seuls sur un poste (lancer des commandes, envoyer des mails, modifier des fichiers) créent une nouvelle surface d'attaque, notamment par injection de prompt. L'ANSSI déconseille de les déployer en production.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">DÉFENSE</span>
+        <h4>SOC automatisés & réponse aux incidents</h4>
+        <p>Dans les SOC, l'IA aide à trier les alertes, à corréler les événements et à résumer un incident. La plupart des organisations gardent toutefois un humain dans la boucle avant toute action de remédiation.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">DÉFENSE</span>
+        <h4>Analyse comportementale des utilisateurs (UEBA)</h4>
+        <p>L'UEBA établit un profil de comportement habituel pour chaque utilisateur afin de détecter un compte compromis ou une menace interne, même lorsque les identifiants utilisés sont valides.</p>
+      </div>
+      <div class="veille-topic fade-in">
+        <span class="tag">RÉGLEMENTATION</span>
+        <h4>AI Act européen</h4>
+        <p>Le règlement européen classe les IA par niveau de risque. Les interdictions s'appliquent depuis février 2025 et les règles des grands modèles depuis août 2025 ; les obligations des IA « à haut risque » ont été reportées à décembre 2027 par l'Omnibus numérique.</p>
+      </div>
     </div>
+  </div>
 
-    <div class="cv-card fade-in">
-      <div class="cv-icon">✉️</div>
-      <h3>Lettre de Motivation</h3>
-      <p>Lettre rédigée pour ma candidature à un stage en administration systèmes et réseaux (26 mai – 3 juillet 2026).</p>
-      <a href="Lettre%20de%20Motivation.pdf" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Télécharger la lettre</a>
+  <div class="veille-section">
+    <h3>📰 Actualités, de la plus récente à la plus ancienne</h3>
+    <p class="veille-legend">Les articles encadrés en <b>or</b> sont les plus importants de ma veille : ceux qui changent concrètement la façon de sécuriser un système d'information.</p>
+    <div class="actu-list">
+
+      <div class="actu-year">2026</div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">13 oct. 2026</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://www.itforbusiness.fr/assises-cybersecurite-anssi-solutions-miracles-108438" target="_blank" rel="noopener">Assises de la cybersécurité : l'ANSSI rejette les solutions miracles</a></h4>
+          <p>Aux Assises de Monaco, le directeur général de l'ANSSI, Vincent Strubel, présente l'IA d'abord comme un multiplicateur de force pour les attaquants. Il met en garde contre le marketing « IA » des éditeurs et rappelle que les bonnes pratiques de base restent la première protection.</p>
+          <p class="actu-why">Pourquoi c'est important : la position la plus récente de l'autorité française. L'hygiène informatique de base (mises à jour, droits, sauvegardes) passe avant les outils « magiques ».</p>
+          <span class="actu-src">Source : IT for Business</span>
+        </div>
+      </div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">24 juil. 2026</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://www.adoue-avocat.fr/articles/omnibus-ia-reglement-2026-1744-ce-qui-change" target="_blank" rel="noopener">AI Act : l'Omnibus IA publié au Journal officiel, le « haut risque » reporté</a></h4>
+          <p>Le règlement (UE) 2026/1744, adopté le 8 juillet, est publié au Journal officiel de l'UE. Les obligations des IA à haut risque sont repoussées au 2 décembre 2027 (et au 2 août 2028 pour l'IA intégrée aux produits réglementés). Le marquage des contenus générés par IA s'applique, lui, à partir d'août 2026.</p>
+          <p class="actu-why">Pourquoi c'est important : c'est le nouveau calendrier officiel de l'AI Act, que toute entreprise qui utilise de l'IA doit suivre.</p>
+          <span class="actu-src">Source : Cabinet Adoue Avocat · voir aussi <a href="https://www.managementqualite.com/news/ai-act-les-obligations-ia-a-haut-risque-repoussees-a-decembre-2027/" target="_blank" rel="noopener" style="color:var(--blue2);">Management Qualité</a></span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">26 mai 2026</div>
+        <div>
+          <h4><a href="https://www.helpnetsecurity.com/2026/05/26/anthropic-project-glasswing-update/" target="_blank" rel="noopener">Project Glasswing : plus de 10 000 failles graves identifiées</a></h4>
+          <p>Premier bilan de Project Glasswing : Anthropic et ses partenaires (AWS, Apple, Cisco, Google, Microsoft, la Linux Foundation…) annoncent plus de 10 000 vulnérabilités de gravité haute ou critique trouvées avec Claude Mythos Preview. Plus de 90 % des failles vérifiées par des cabinets indépendants sont confirmées.</p>
+          <span class="actu-src">Source : Help Net Security (en anglais)</span>
+        </div>
+      </div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">13 avr. 2026</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://cert.cyber.gouv.fr/actualite/CERTFR-2026-ACT-016" target="_blank" rel="noopener">CERT-FR : les risques des agents IA sur les postes de travail</a></h4>
+          <p>Dans le bulletin CERTFR-2026-ACT-016, l'ANSSI recommande de ne pas déployer en production les assistants IA autonomes sur les postes. Elle demande de les tester uniquement dans des environnements isolés, d'interdire les outils non validés par la DSI (Shadow IT), de limiter leurs droits et d'exiger une validation humaine pour toute action sensible.</p>
+          <p class="actu-why">Pourquoi c'est important : c'est directement mon futur métier. Gestion du parc, moindre privilège et contrôle des logiciels installés sont des missions d'un technicien SISR.</p>
+          <span class="actu-src">Source : CERT-FR / ANSSI (officiel)</span>
+        </div>
+      </div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">08 avr. 2026</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://www.lemagit.fr/actualites/366641026/Entre-mythe-et-realite-limpact-de-Claude-Mythos-sur-la-cybersecurite" target="_blank" rel="noopener">Claude Mythos : une IA capable de trouver et d'exploiter seule des failles</a></h4>
+          <p>Anthropic présente Claude Mythos Preview, un modèle qui découvre des failles zero-day dans des systèmes d'exploitation et des navigateurs, dont une faille vieille de 27 ans dans OpenBSD. Jugé trop dangereux pour une diffusion publique, il est réservé à des partenaires de Project Glasswing pour corriger les logiciels critiques. LeMagIT souligne que les entreprises devront corriger leurs failles beaucoup plus vite, tout en notant que ces résultats reposent surtout sur les déclarations d'Anthropic.</p>
+          <p class="actu-why">Pourquoi c'est important : le délai entre la découverte d'une faille et son exploitation se réduit fortement. La gestion des mises à jour devient encore plus critique.</p>
+          <span class="actu-src">Source : LeMagIT · voir aussi la <a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener" style="color:var(--blue2);">page officielle d'Anthropic</a></span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">11 mars 2026</div>
+        <div>
+          <h4><a href="https://cert.cyber.gouv.fr/cti/CERTFR-2026-CTI-002" target="_blank" rel="noopener">ANSSI : Panorama de la cybermenace 2025</a></h4>
+          <p>Le bilan annuel de l'ANSSI observe un recul de l'usage des rançongiciels au profit du vol de données sans chiffrement. Sur l'IA, l'agence note l'intérêt des attaquants pour ces outils, mais estime qu'il n'est pas pertinent de parler de changement de paradigme à ce stade.</p>
+          <span class="actu-src">Source : CERT-FR / ANSSI (officiel)</span>
+        </div>
+      </div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">04 fév. 2026</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://www.lemondeinformatique.fr/actualites/lire-l-anssi-livre-son-bilan-de-la-menace-ia-en-2025-99262.html" target="_blank" rel="noopener">L'ANSSI publie son bilan de la menace IA en 2025</a></h4>
+          <p>Synthèse de 12 pages de l'ANSSI sur l'usage offensif de l'IA générative : emails de phishing multilingues, code malveillant qui se modifie pour échapper aux antivirus, et exploitation de failles dans les agents IA connectés via le protocole MCP.</p>
+          <p class="actu-why">Pourquoi c'est important : le document de référence français sur la menace IA, très utile pour argumenter devant un jury.</p>
+          <span class="actu-src">Source : Le Monde Informatique · <a href="https://cert.cyber.gouv.fr/uploads/CERTFR-2026-CTI-001.pdf" target="_blank" rel="noopener" style="color:var(--blue2);">rapport officiel CERTFR-2026-CTI-001 (PDF)</a></span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">04 fév. 2026</div>
+        <div>
+          <h4><a href="https://www.itforbusiness.fr/la-cybersecurite-a-ere-de-ia-en-2026-enfin-des-chiffres-interessants-rapport-darktrace-100081" target="_blank" rel="noopener">Darktrace : l'état de la cybersécurité IA en 2026</a></h4>
+          <p>Étude menée auprès de 1 500 DSI et RSSI : 77 % des organisations utilisent déjà l'IA générative pour se défendre, et 87 % constatent une hausse des menaces liées à l'IA. Seules 37 % disposent d'une politique d'usage sécurisé de l'IA, et 70 % gardent un humain dans la boucle avant toute remédiation.</p>
+          <span class="actu-src">Source : IT for Business</span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">23 jan. 2026</div>
+        <div>
+          <h4><a href="https://www.lemondeinformatique.fr/actualites/lire-barometre-cesin-2025-des-attaques-plus-virulentes-mais-mieux-maitrisees-99136.html" target="_blank" rel="noopener">Baromètre CESIN 2025 : des cyberattaques plus virulentes mais mieux maîtrisées</a></h4>
+          <p>11ᵉ édition du baromètre du club des experts cyber : 47 % des entreprises françaises ont subi une cyberattaque majeure en 2024. Les deepfakes ne représentent plus que 5 % des vecteurs d'attaque, mais les pertes restent lourdes quand ils réussissent.</p>
+          <span class="actu-src">Source : Le Monde Informatique</span>
+        </div>
+      </div>
+
+      <div class="actu-year">2025</div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">22 oct. 2025</div>
+        <div>
+          <h4><a href="https://www.silicon.fr/cybersecurite-1371/tribune-expert-deepfakes-la-prochaine-faille-humaine-des-entreprises-224004" target="_blank" rel="noopener">Deepfakes : la prochaine faille humaine des entreprises</a></h4>
+          <p>Le clonage vocal ne demande plus que quelques secondes d'enregistrement public. Le rapport Anozr Way prévoit un passage de 500 000 deepfakes en 2023 à 8 millions en 2025, avec les dirigeants comme cibles privilégiées.</p>
+          <span class="actu-src">Source : Silicon.fr</span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">02 août 2025</div>
+        <div>
+          <h4><a href="https://digital-strategy.ec.europa.eu/fr/policies/regulatory-framework-ai" target="_blank" rel="noopener">AI Act : obligations pour les IA à usage général</a></h4>
+          <p>Les fournisseurs de grands modèles d'IA (GPT, Mistral, Gemini…) doivent désormais documenter leurs modèles, être transparents et respecter le droit d'auteur. Sanctions possibles jusqu'à 35 M€ ou 7 % du chiffre d'affaires mondial.</p>
+          <span class="actu-src">Source : Commission européenne (officiel)</span>
+        </div>
+      </div>
+
+      <div class="actu-item key fade-in">
+        <div class="actu-date">18 juil. 2025</div>
+        <div>
+          <span class="key-badge">⭐ ESSENTIEL</span>
+          <h4><a href="https://cyber.gouv.fr/nous-connaitre/publications/etude-de-marche/etude-de-marche-ia/" target="_blank" rel="noopener">Étude ANSSI : l'IA au service des SOC français</a></h4>
+          <p>L'ANSSI distingue l'IA prédictive (machine learning de détection, déjà mature dans les EDR) et l'IA générative (assistant d'enquête, plus récente). 48 entreprises consultées et des recommandations pour éviter les erreurs de l'IA et sécuriser les déploiements.</p>
+          <p class="actu-why">Pourquoi c'est important : elle montre où l'IA défensive fonctionne déjà vraiment, au-delà des promesses commerciales.</p>
+          <span class="actu-src">Source : ANSSI (officiel)</span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">10 fév. 2025</div>
+        <div>
+          <h4><a href="https://www.usine-digitale.fr/article/cybersecurite-l-anssi-fournit-plusieurs-recommandations-pour-securiser-les-systemes-d-ia.N2227231" target="_blank" rel="noopener">Sommet pour l'action sur l'IA : l'ANSSI publie ses recommandations</a></h4>
+          <p>Avec 16 agences nationales, l'ANSSI publie des recommandations pour sécuriser les systèmes d'IA : cartographier la chaîne d'approvisionnement, limiter l'autonomie des systèmes et maintenir une supervision humaine.</p>
+          <span class="actu-src">Source : L'Usine Digitale</span>
+        </div>
+      </div>
+
+      <div class="actu-item fade-in">
+        <div class="actu-date">02 fév. 2025</div>
+        <div>
+          <h4><a href="https://www.cnil.fr/fr/entree-en-vigueur-du-reglement-europeen-sur-lia-les-premieres-questions-reponses-de-la-cnil" target="_blank" rel="noopener">AI Act : interdiction des IA à risque inacceptable</a></h4>
+          <p>Première étape de l'AI Act : les systèmes jugés à risque inacceptable (notation sociale, manipulation cognitive, certaines catégorisations biométriques) sont interdits dans l'Union européenne.</p>
+          <span class="actu-src">Source : CNIL (officiel)</span>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="cv-info fade-in">
-      <h3>👤 Informations personnelles</h3>
-      <div class="cv-info-grid">
-        <div class="cv-info-item"><span class="key">Nom complet</span><span class="val">Ilyass BEN EL MEKKI</span></div>
-        <div class="cv-info-item"><span class="key">Formation</span><span class="val">BTS SIO – Option SISR</span></div>
-        <div class="cv-info-item"><span class="key">Lycée</span><span class="val">Paul Lapie, Courbevoie (92)</span></div>
-        <div class="cv-info-item"><span class="key">Professeur</span><span class="val">Mr Tarif</span></div>
-        <div class="cv-info-item"><span class="key">Adresse</span><span class="val">22 rue Maya Angelou, Saint-Ouen 93400</span></div>
-        <div class="cv-info-item"><span class="key">Téléphone</span><span class="val">06 29 64 98 42</span></div>
-        <div class="cv-info-item"><span class="key">Email</span><span class="val">ilyass.benelmekki07@gmail.com</span></div>
-        <div class="cv-info-item"><span class="key">GitHub</span><span class="val">github.com/IlyassBEM</span></div>
-        <div class="cv-info-item"><span class="key">Langues</span><span class="val">Français · Anglais B1 · Espagnol B1 · Arabe B1</span></div>
-        <div class="cv-info-item"><span class="key">Stage</span><span class="val">26 mai – 3 juillet 2026 ✅</span></div>
+  <div class="veille-section">
+    <h3>💡 Ce que je retiens de ma veille</h3>
+    <div class="veille-take fade-in">
+      <ul>
+        <li><strong>L'IA accélère surtout les attaquants</strong> : phishing plus crédible, failles trouvées plus vite. Le temps pour appliquer un correctif se réduit.</li>
+        <li><strong>Les bases restent le premier rempart</strong> : mises à jour, moindre privilège, sauvegardes, maîtrise du parc. C'est le cœur du métier de technicien SISR.</li>
+        <li><strong>Les agents IA sont un nouveau risque sur les postes</strong> : comme tout logiciel, ils doivent être validés par la DSI avant d'être installés.</li>
+        <li><strong>L'IA défensive est utile avec un humain dans la boucle</strong>, notamment pour trier les alertes dans un SOC.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="veille-section">
+    <h3>📚 Sources & Références</h3>
+    <div class="sources-grid">
+      <div class="source-card fade-in">
+        <div class="source-name">ANSSI / CERT-FR</div>
+        <div class="source-type">OFFICIEL · FRANÇAIS</div>
+        <p>Agence nationale de la sécurité des systèmes d'information et son centre d'alerte. Bulletins, rapports et recommandations officiels.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">CNIL</div>
+        <div class="source-type">OFFICIEL · FRANÇAIS</div>
+        <p>Autorité française de protection des données, impliquée dans l'application du RGPD et de l'AI Act.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">Commission européenne</div>
+        <div class="source-type">OFFICIEL · EUROPÉEN</div>
+        <p>Textes et calendrier officiels de l'AI Act.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">LeMagIT</div>
+        <div class="source-type">MÉDIA FR</div>
+        <p>Actualité IT et cybersécurité, avec des analyses détaillées des menaces et des nouvelles technologies IA.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">Le Monde Informatique</div>
+        <div class="source-type">MÉDIA FR</div>
+        <p>Actualités IT et cybersécurité, analyses des cyberattaques et des tendances du secteur.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">IT for Business</div>
+        <div class="source-type">MÉDIA FR</div>
+        <p>Média des DSI : études, événements (Assises de la cybersécurité) et décryptages.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">Silicon.fr</div>
+        <div class="source-type">MÉDIA FR</div>
+        <p>Média spécialisé IT : actualités cybersécurité et tribunes d'experts.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">L'Usine Digitale</div>
+        <div class="source-type">MÉDIA FR</div>
+        <p>Transformation numérique des entreprises et cybersécurité.</p>
+      </div>
+      <div class="source-card fade-in">
+        <div class="source-name">Help Net Security</div>
+        <div class="source-type">MÉDIA INTERNATIONAL · EN</div>
+        <p>Média de référence en sécurité informatique, utile pour suivre l'actualité mondiale en anglais.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<!-- 7. CONTACT -->
+<!-- 8. CV & LETTRE DE MOTIVATION -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section id="cv">
+  <div class="section-label">08 · CV, lettre & rapport</div>
+  <h2 class="page-title">Mes <span>documents</span></h2>
+  <p class="page-sub">Mes documents à jour : CV, lettre de motivation pour mon stage de deuxième année, et rapport de mon stage de première année.</p>
+
+  <div class="cv-grid">
+    <div class="cv-card fade-in">
+      <div class="cv-icon">📄</div>
+      <h3>Curriculum Vitae</h3>
+      <p>Mon parcours, mon expérience à la DSI de Saint-Ouen-sur-Seine, mes compétences systèmes, réseaux et support, et mes projets.</p>
+      <a href="CV_Ilyass_BEN_EL_MEKKI.pdf" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Télécharger le CV</a>
+    </div>
+
+    <div class="cv-card fade-in">
+      <div class="cv-icon">✉️</div>
+      <h3>Lettre de Motivation</h3>
+      <p>Candidature à un stage en systèmes et réseaux de cinq semaines, du 22 février au 26 mars 2027.</p>
+      <a href="Lettre_de_motivation_Ilyass_BEN_EL_MEKKI.pdf" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Télécharger la lettre</a>
+    </div>
+
+    <div class="cv-card fade-in">
+      <div class="cv-icon">📘</div>
+      <h3>Rapport de stage</h3>
+      <p>Mon stage de première année à la DSI de la mairie de Saint-Ouen-sur-Seine, du 26 mai au 3 juillet 2026.</p>
+      <a href="Rapport_de_stage_Ilyass_BEN_EL_MEKKI.pdf" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Lire le rapport</a>
+    </div>
+
+    <div class="cv-info fade-in">
+      <h3>👤 Informations</h3>
+      <div class="cv-info-grid">
+        <div class="cv-info-item"><span class="key">Nom complet</span><span class="val">Ilyass BEN EL MEKKI</span></div>
+        <div class="cv-info-item"><span class="key">Formation</span><span class="val">BTS SIO – Option SISR (2e année)</span></div>
+        <div class="cv-info-item"><span class="key">Lycée</span><span class="val">Paul Lapie, Courbevoie (92)</span></div>
+        <div class="cv-info-item"><span class="key">Professeurs</span><span class="val">M. Tarif et M. RHAZZA</span></div>
+        <div class="cv-info-item"><span class="key">Ville</span><span class="val">Saint-Ouen-sur-Seine (93)</span></div>
+        <div class="cv-info-item"><span class="key">Email</span><span class="val">ilyass.benelmekki07@gmail.com</span></div>
+        <div class="cv-info-item"><span class="key">GitHub</span><span class="val">github.com/IlyassBEM</span></div>
+        <div class="cv-info-item"><span class="key">Langues</span><span class="val">Français · Anglais B1 · Espagnol B1 · Arabe B1</span></div>
+        <div class="cv-info-item"><span class="key">Stage 1</span><span class="val">DSI Mairie de Saint-Ouen · 2026 ✅</span></div>
+        <div class="cv-info-item"><span class="key">Stage 2</span><span class="val">22 fév. – 26 mars 2027 · recherche en cours</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- 9. CONTACT -->
 <!-- ══════════════════════════════════════════════════════════════ -->
 <section id="contact">
-  <div class="section-label">07 · Contact</div>
+  <div class="section-label">09 · Contact</div>
   <h2 class="page-title">Me <span>contacter</span></h2>
-  <p class="page-sub">N'hésitez pas à me contacter pour toute question ou opportunité.</p>
+  <p class="page-sub">N'hésitez pas à me contacter pour toute question ou opportunité de stage.</p>
 
   <div class="contact-grid">
     <div class="contact-info fade-in">
@@ -1443,13 +2065,6 @@ footer span { color: var(--cyan); }
             <div class="value">ilyass.benelmekki07@gmail.com</div>
           </div>
         </a>
-        <a href="tel:0629649842" class="contact-item">
-          <div class="icon">📞</div>
-          <div class="info">
-            <div class="label">TÉLÉPHONE</div>
-            <div class="value">06 29 64 98 42</div>
-          </div>
-        </a>
         <a href="https://github.com/IlyassBEM" target="_blank" class="contact-item">
           <div class="icon">🐙</div>
           <div class="info">
@@ -1461,53 +2076,64 @@ footer span { color: var(--cyan); }
           <div class="icon">💻</div>
           <div class="info">
             <div class="label">LINKEDIN</div>
-            <div class="value">www.linkedin.com/in/ilyass-ben-el-mekki-769390382/</div>
+            <div class="value">linkedin.com/in/ilyass-ben-el-mekki</div>
           </div>
         </a>
         <div class="contact-item" style="cursor:default;">
           <div class="icon">📍</div>
           <div class="info">
             <div class="label">LOCALISATION</div>
-            <div class="value">Saint-Ouen (93400) · Île-de-France</div>
+            <div class="value">Saint-Ouen-sur-Seine (93) · Île-de-France</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="contact-form fade-in">
+    <form class="contact-form fade-in" id="contactForm">
       <h3>Envoyer un message</h3>
       <div class="form-group">
-        <label>NOM COMPLET</label>
-        <input type="text" placeholder="Votre nom">
+        <label for="cf-name">NOM COMPLET</label>
+        <input type="text" id="cf-name" placeholder="Votre nom" required>
       </div>
       <div class="form-group">
-        <label>EMAIL</label>
-        <input type="email" placeholder="votre@email.com">
+        <label for="cf-email">EMAIL</label>
+        <input type="email" id="cf-email" placeholder="votre@email.com" required>
       </div>
       <div class="form-group">
-        <label>SUJET</label>
-        <input type="text" placeholder="Objet de votre message">
+        <label for="cf-subject">SUJET</label>
+        <input type="text" id="cf-subject" placeholder="Objet de votre message" required>
       </div>
       <div class="form-group">
-        <label>MESSAGE</label>
-        <textarea placeholder="Votre message..."></textarea>
+        <label for="cf-message">MESSAGE</label>
+        <textarea id="cf-message" placeholder="Votre message..." required></textarea>
       </div>
-      <a href="mailto:ilyass.benelmekki07@gmail.com" class="btn btn-primary" style="width:100%;text-align:center;">Envoyer →</a>
-    </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;">Envoyer →</button>
+      <p class="form-hint">Le message s'ouvre, prérempli, dans votre messagerie.</p>
+    </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 – <span>Ilyass BEN EL MEKKI</span> · BTS SIO Option SISR · Lycée Paul Lapie, Courbevoie</p>
-  <p style="margin-top:0.4rem;font-size:0.7rem;">Portfolio E5 · Professeur : Mr Tarif</p>
+  <p>© 2025 – 2027 · <span>Ilyass BEN EL MEKKI</span> · BTS SIO Option SISR · Lycée Paul Lapie, Courbevoie</p>
+  <p style="margin-top:0.4rem;font-size:0.7rem;">Portfolio E5 · Professeurs : M. Tarif et M. RHAZZA</p>
 </footer>
 
 <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
 <script>
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
+const navMenu = document.getElementById('navLinks');
+const navToggle = document.getElementById('navToggle');
 
+// Menu mobile
+navToggle.addEventListener('click', () => {
+  const open = navMenu.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+  navToggle.textContent = open ? '✕' : '☰';
+});
+
+// Lien actif selon la section visible
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1516,10 +2142,10 @@ const observer = new IntersectionObserver((entries) => {
       if (active) active.classList.add('active');
     }
   });
-}, { threshold: 0.35 });
-
+}, { threshold: 0.2 });
 sections.forEach(s => observer.observe(s));
 
+// Apparition au défilement
 const fadeEls = document.querySelectorAll('.fade-in');
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -1529,14 +2155,32 @@ const fadeObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1 });
-
 fadeEls.forEach(el => fadeObserver.observe(el));
 
+// Défilement doux + fermeture du menu mobile
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    if (navMenu.classList.contains('open')) {
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
+    }
   });
+});
+
+// Formulaire : ouvre la messagerie avec le message prérempli
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+  const body = `${message}\n\n— ${name} (${email})`;
+  window.location.href = 'mailto:ilyass.benelmekki07@gmail.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
 });
 </script>
 </body>
